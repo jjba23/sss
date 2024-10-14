@@ -248,7 +248,7 @@
 (defvar *my-screen-config-keymap*
   (let ((m (make-sparse-keymap)))
 
-    (define-key m (stumpwm:kbd "t") "run-shell-command ~/Ontwikkeling/Persoonlijk/guix-jjba23/resources/screen-layouts/vandebron-macbook-single-screen.sh")
+    (define-key m (stumpwm:kbd "t") "run-shell-command ~/Ontwikkeling/Persoonlijk/sss/resources/screen-layouts/vandebron-macbook-single-screen.sh")
     (define-key m (stumpwm:kbd "r") "refresh-heads")
     m))
 
@@ -278,7 +278,7 @@
     (gnewbg "[PRIV]")
     (clear-window-placement-rules)
 
-    (run-shell-command "feh --bg-scale ~/Ontwikkeling/Persoonlijk/guix-jjba23/resources/wallpapers/3nt5e7.png")
+    (run-shell-command "feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
     (run-shell-command "emacs --daemon")
     (run-shell-command "picom -b")
     (run-shell-command "xmodmap ~/.xmodmap")

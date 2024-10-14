@@ -2,18 +2,18 @@
 
 ;; Copyright (C) 2024 Josep Jesus Bigorra Algaba
 
-;; guix-jjba23 is free software: you can redistribute it and/or modify
+;; sss is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
 ;; (at your option) any later version.
 
-;; guix-jjba23 is distributed in the hope that it will be useful,
+;; sss is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with guix-jjba23.  If not, see <https://www.gnu.org/licenses/>.
+;; along with sss.  If not, see <https://www.gnu.org/licenses/>.
 
 (use-modules (gnu home)
              (gnu home services)
@@ -36,9 +36,9 @@
      '(("ll" . "ls -lAh --group-directories-first")
        ("l" . "ls -lAh --group-directories-first")
        ("e" . "emacsclient -t")
-       ("fr" . "cd ~/Ontwikkeling/Persoonlijk/guix-jjba23 && make fr")
-       ("sr" . "cd ~/Ontwikkeling/Persoonlijk/guix-jjba23 && make sr")
-       ("jr" . "cd ~/Ontwikkeling/Persoonlijk/guix-jjba23 && make jr")
+       ("fr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make fr")
+       ("sr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make sr")
+       ("jr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make jr")
        )))
    ))
 
@@ -66,13 +66,13 @@
                               ))
 
 (define jjba23-picom-conf-location
-  "/home/joe/Ontwikkeling/Persoonlijk/guix-jjba23/home/joe/generated/picom.conf")
+  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/picom.conf")
 
 (define jjba23-kitty-conf-location
-  "/home/joe/Ontwikkeling/Persoonlijk/guix-jjba23/home/joe/generated/kitty.conf")
+  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/kitty.conf")
 
 (define jjba23-xmodmap-conf-location
-  "/home/joe/Ontwikkeling/Persoonlijk/guix-jjba23/home/joe/generated/xmodmap")
+  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/xmodmap")
 
 
 (define jjba23-home-files-service

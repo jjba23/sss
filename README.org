@@ -1,8 +1,8 @@
-* Joe's GNU Guix configurations - jjba23
+* Supreme Sexp System - SSS
 
 GNU is love, GNU is life.
 
-Find all my Guix and Emacs configurations here.
+Find the divine sayings, and the destined configurations, all my Guix, Lisp and Emacs configurations here for a fully Lisp machine with GNU/Linux.
 
 * Installing and using
 

@@ -13,7 +13,7 @@ joe-reconfigure:
 jr:
 	make joe-reconfigure
 echo-complete:
-	@echo "[guix-jjba23][${JJBA23_DATE}][INFO] Operation was completed successfully!"
+	@echo "[sss][${JJBA23_DATE}][INFO] Operation was completed successfully!"
 full-rebuild:
 	make system-reconfigure
 	make joe-reconfigure

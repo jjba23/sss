@@ -103,9 +103,9 @@
          )
   :init
   (setq welkomscherm-bookmarks-personal
-        '((("guix-jjba23" . "~/Ontwikkeling/Persoonlijk/guix-jjba23/")
+        '((("sss" . "~/Ontwikkeling/Persoonlijk/sss/")
            ("notes" . "~/Ontwikkeling/Persoonlijk/private-notes/")
-           ("emacs config" . "~/Ontwikkeling/Persoonlijk/guix-jjba23/home/joe/emacs/init.el")
+           ("emacs config" . "~/Ontwikkeling/Persoonlijk/sss/home/joe/emacs/init.el")
            )
           (("wikimusic-api" . "~/Ontwikkeling/Persoonlijk/wikimusic-api/")
            ("wikimusic-ssr" . "~/Ontwikkeling/Persoonlijk/wikimusic-ssr/")
@@ -626,12 +626,12 @@ According to size, color and font family"
 (defun jjba-bookmark-emacs-config ()
   "Visit jjba bookmark: Emacs main init.el config file."
   (interactive) 
-  (find-file "/home/joe/Ontwikkeling/Persoonlijk/guix-jjba23/home/joe/emacs/init.el"))
+  (find-file "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/emacs/init.el"))
 
 (defun jjba-bookmark-xfce-config ()
   "Visit jjba bookmark: XFCE main xfconf config file."
   (interactive) 
-  (find-file "/home/joe/Ontwikkeling/Persoonlijk/guix-jjba23/home/joe/xfce/"))
+  (find-file "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/xfce/"))
 
 (defun new-frame-setup (frame)
   (if (display-graphic-p frame)
@@ -647,25 +647,25 @@ According to size, color and font family"
 (defun jjba23-joe-reconfigure ()
   "Rebuild GNU Guix Joe's configs."
   (interactive)
-  (let ((default-directory "~/Ontwikkeling/Persoonlijk/guix-jjba23"))
+  (let ((default-directory "~/Ontwikkeling/Persoonlijk/sss"))
     (async-shell-command "make jr")))
 
 (defun jjba23-full-reconfigure ()
   "Fully Rebuild GNU Guix Joe's configs and Joe's user."
   (interactive)
-  (let ((default-directory "~/Ontwikkeling/Persoonlijk/guix-jjba23"))
+  (let ((default-directory "~/Ontwikkeling/Persoonlijk/sss"))
     (async-shell-command "make fr")))
 
 (defun jjba23-sys-reconfigure ()
   "Rebuild GNU Guix Joe's configs."
   (interactive)
-  (let ((default-directory "~/Ontwikkeling/Persoonlijk/guix-jjba23"))
+  (let ((default-directory "~/Ontwikkeling/Persoonlijk/sss"))
     (async-shell-command "make sr")))
 
 (defun jjba23-sys-update ()
   "Update GNU Guix packages."
   (interactive)
-  (let ((default-directory "~/Ontwikkeling/Persoonlijk/guix-jjba23"))
+  (let ((default-directory "~/Ontwikkeling/Persoonlijk/sss"))
     (async-shell-command "make update")))
 
 (use-package flymake
