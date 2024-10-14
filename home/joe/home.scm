@@ -22,6 +22,7 @@
              (gnu packages admin)
              (gnu services)
              (guix gexp))
+(use-modules (gnu home services ssh) )
 
 (load "./proc.scm")
 
@@ -86,6 +87,15 @@
 	     (,(emacs-conf-file "early-init.el")
               ,(local-file "emacs/early-init.el")))))
 
+(define jjba23-ssh-service
+  (service home-openssh-service-type
+           (home-openssh-configuration
+            (hosts
+             (list (openssh-host (name "personal.github.com")
+                                 (user "joe")
+                                 (host-name "github.com")
+                                 (identity-file "~/.ssh/gitlab_prive"))))
+            (authorized-keys '()))))
 
 (display "generating picom configuration...\n")
 (mk-conf
@@ -114,6 +124,7 @@
  (services
   (list 
    jjba23-home-files-service
+   jjba23-ssh-service
    jjba23-fancy-bash-service
    )))
 
