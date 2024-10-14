@@ -20,6 +20,7 @@
 	     (gnu packages screen)	     
 	     (gnu packages emacs)
              (gnu packages xorg)
+             (gnu packages file-systems)
              (gnu packages display-managers)
              (gnu packages web-browsers) 
              (gnu packages docker)
@@ -170,6 +171,9 @@
    rofi
    slim
    lm-sensors
+   exfatprogs
+   exfat-utils
+   fuse-exfat
    tmon
    zip
    unzip
