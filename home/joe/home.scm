@@ -25,7 +25,8 @@
 (use-modules (gnu home services ssh)
              (gnu home services gnupg)
              (gnu packages gnupg))
-(use-modules (gnu home services sound))
+(use-modules (gnu home services sound)
+             (gnu home services desktop) )
 
 (load "./proc.scm")
 
@@ -141,6 +142,7 @@
    jjba23-ssh-service
    jjba23-fancy-bash-service
    jjba23-opengpg-conf
+   (service home-dbus-service-type)
    jjba23-audio-service
    )))
 

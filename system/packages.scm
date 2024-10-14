@@ -164,7 +164,7 @@
    containerd
    xmodmap
    nyxt
-   docker
+   docker   
    gparted
    xrandr
    rofi
