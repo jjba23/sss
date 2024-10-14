@@ -1,0 +1,11 @@
+* Joe's GNU Guix configurations - jjba23
+
+GNU is love, GNU is life.
+
+Find all my Guix and Emacs configurations here.
+
+* Installing and using
+
+As your user ~joe~ run commands from the Makefile, like ~make fr~ or make ~sr~.
+
+The system and home folders of users are managed independently of each other, in quite a loosely coupled manner.
