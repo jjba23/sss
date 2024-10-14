@@ -20,6 +20,8 @@
 (load-module "ttf-fonts")
 (load-module "clx-truetype")
 (load-module "stumptray")
+;; (load-module "trivial-cltl2")
+;; (load-module "slynk")
 
 (setf xft:*font-dirs*
       (list (concat +guix-system-path+ "fonts/")
@@ -61,6 +63,14 @@
   (let ((ip (run-shell-command "uname -r" t)))
     (substitute #\Space #\Newline ip)))
 
+;; (stumpwm:defcommand sly-start-server () ()
+;;   "Start a slynk server for sly."
+;;   (sb-thread:make-thread (lambda () (slynk:create-server :dont-close t))))
+
+;; (stumpwm:defcommand sly-stop-server () ()
+;;   "Stop current slynk server for sly."
+;;   (sb-thread:make-thread (lambda () (slynk:stop-server 4005))))
+
 
 (setf *mouse-focus-policy*    :click
       *float-window-modifier* :SUPER)
@@ -75,9 +85,16 @@
         ,rp-foam   ;; 6 cyan
         ,rp-text)) ;; 7 white
 
-
 ;;(load-module "battery-portable")
 ;;(load-module "wifi")
+
+
+(setf *normal-border-width*       0
+      *float-window-border*       0
+      *float-window-title-height* 15
+      *window-border-style*       :none)
+
+
 
 (setf *mode-line-timeout* 2)
 ;;(setf *time-modeline-string* "%F %H:%M")
@@ -93,10 +110,7 @@
 (setf *mode-line-background-color* rp-base
       *mode-line-foreground-color* rp-text)
 
-(setf *normal-border-width* 3
-      *transient-border-width* 3
-      *maxsize-border-width* 3
-      *window-border-style* :thick)
+
 
 (set-focus-color rp-pine)
 (set-unfocus-color rp-surface)
@@ -136,11 +150,11 @@
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "]") "gnext")
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "[") "gprev")
 
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "1") "gselect1")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "2") "gselect2")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "3") "gselect3")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "4") "gselect4")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "5") "gselect5")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "1") "gselect 1")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "2") "gselect 2")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "3") "gselect 3")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "4") "gselect 4")
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "5") "gselect 5")
 
 
 ;; Media control

@@ -100,7 +100,10 @@
    sbcl-trivial-garbage
    sbcl-cl-store
    sbcl-stumpwm-stumptray
+   sbcl-trivial-cltl2
    sbcl-clx-xembed
+   sbcl-slynk
+   sbcl-cl-environments
    stumpish
    picom
    ))
