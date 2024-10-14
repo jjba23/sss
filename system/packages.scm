@@ -20,6 +20,7 @@
 	     (gnu packages screen)	     
 	     (gnu packages emacs)
              (gnu packages xorg)
+             (gnu packages display-managers)
              (gnu packages web-browsers) 
              (gnu packages docker)
              (gnu packages lisp-xyz)
@@ -52,6 +53,7 @@
 	     (gnu packages compression)
              (gnu packages sqlite)
              (gnu packages disk)
+             (gnu packages glib)
              (gnu packages networking)
 	     (gnu packages gnuzilla))
 
@@ -121,6 +123,7 @@
    icecat
    icedove
    openssh
+   dbus
    ncurses
    gmp
    gcc
@@ -165,6 +168,9 @@
    gparted
    xrandr
    rofi
+   slim
+   lm-sensors
+   tmon
    zip
    unzip
    tar))

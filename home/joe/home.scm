@@ -22,7 +22,10 @@
              (gnu packages admin)
              (gnu services)
              (guix gexp))
-(use-modules (gnu home services ssh) )
+(use-modules (gnu home services ssh)
+             (gnu home services gnupg)
+             (gnu packages gnupg))
+(use-modules (gnu home services sound))
 
 (load "./proc.scm")
 
@@ -50,6 +53,9 @@
   '((backend . "\"xrender\"")
     (corner-radius . 12)))
 
+(define jjba23-audio-service
+  (service home-pipewire-service-type))
+
 (define jjba23-kitty-conf
   '((font_family . "\"JetBrains Mono\"")
     (font_size . 12.0)
@@ -59,6 +65,14 @@
     ("map alt+w" . "copy_to_clipboard")
     ("map ctrl+y" . "paste_from_clipboard")
     ))
+
+
+(define jjba23-opengpg-conf
+  (service home-gpg-agent-service-type
+           (home-gpg-agent-configuration
+            (pinentry-program
+             (file-append pinentry-emacs "/bin/pinentry-emacs"))
+            (ssh-support? #t))))
 
 (define jjba23-xmodmap-conf '(
                               ("remove Lock" . "Caps_Lock")
@@ -126,5 +140,7 @@
    jjba23-home-files-service
    jjba23-ssh-service
    jjba23-fancy-bash-service
+   jjba23-opengpg-conf
+   jjba23-audio-service
    )))
 

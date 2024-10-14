@@ -15,10 +15,13 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with byggsteg.  If not, see <https://www.gnu.org/licenses/>.
 
-(use-modules (gnu))
+(use-modules (gnu)
+             (gnu packages display-managers))
 
 (use-modules (nongnu packages linux)
              (nongnu system linux-initrd))
+
+(use-modules (gnu services xorg))
 
 (load "./system/packages.scm")
 
@@ -74,7 +77,10 @@
          (service nix-service-type)
          (service containerd-service-type)
          (service docker-service-type)
-	 %desktop-services)))
+         (service slim-service-type)
+         (modify-services %desktop-services
+                          (delete gdm-service-type))
+         )))
 
 
 
