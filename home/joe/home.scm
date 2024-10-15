@@ -67,7 +67,7 @@
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/kitty.conf")
 
 (define jjba23-kitty-conf
-  '((font_family . "\"IBM Plex Mono\"")
+  '((font_family . "\"Intel One Mono\"")
     (font_size . 12.0)
     (scrollback_lines . 10000000)
     (window_padding_width . 12)

@@ -78,7 +78,7 @@
   "JJBA customization group."
   :group 'tools)
 
-(defcustom jjba-font-mono "IBM Plex Mono"
+(defcustom jjba-font-mono "Intel One Mono"
   "My personal choice for monospaced font family." 
   :type 'string)
 
