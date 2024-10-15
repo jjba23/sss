@@ -106,19 +106,6 @@
 (define jjba23-audio-service
   (service home-pipewire-service-type))
 
-(define jjba23-home-files-service
-  (service home-files-service-type
-	   `((".config/kitty/kitty.conf" ,(local-file  jjba23-kitty-conf-location))
-             (".stumpwm.d/init.lisp" ,(local-file "stumpwm/init.lisp"))
-             (".config/picom.conf" ,(local-file jjba23-picom-conf-location))
-             (".xmodmap" ,(local-file  jjba23-xmodmap-conf-location))
-             (".config/gtk-3.0/settings.ini" ,(local-file jjba23-gtk3-conf-location))
-             (".config/guix/channels.scm" ,(local-file "channels.scm"))
-             (,(emacs-conf-file "init.el")
-              ,(local-file "emacs/init.el"))
-	     (,(emacs-conf-file "early-init.el")
-              ,(local-file "emacs/early-init.el")))))
-
 (define jjba23-ssh-service
   (service home-openssh-service-type
            (home-openssh-configuration
@@ -156,6 +143,20 @@
  (lambda ()
    (write-gtk3-conf jjba23-gtk3-conf
                     jjba23-gtk3-conf-location) ))
+
+(define jjba23-home-files-service
+  (service home-files-service-type
+	   `((".config/kitty/kitty.conf" ,(local-file  jjba23-kitty-conf-location))
+             (".stumpwm.d/init.lisp" ,(local-file "stumpwm/init.lisp"))
+             (".config/picom.conf" ,(local-file jjba23-picom-conf-location))
+             (".xmodmap" ,(local-file  jjba23-xmodmap-conf-location))
+             (".config/gtk-3.0/settings.ini" ,(local-file jjba23-gtk3-conf-location))
+             (".config/guix/channels.scm" ,(local-file "channels.scm"))
+             (".config/rofi/config.rasi" ,(local-file "rofi/config.rasi"))
+             (,(emacs-conf-file "init.el")
+              ,(local-file "emacs/init.el"))
+	     (,(emacs-conf-file "early-init.el")
+              ,(local-file "emacs/early-init.el")))))
 
 (display "configuring home environment...")
 (home-environment

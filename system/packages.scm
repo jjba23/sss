@@ -19,6 +19,7 @@
 	     (gnu packages admin)
 	     (gnu packages screen)	     
 	     (gnu packages emacs)
+             (gnu packages databases)
              (gnu packages xorg)
              (gnu packages file-systems)
              (gnu packages display-managers)
@@ -186,6 +187,7 @@
    eom
    atril
    engrampa
+   sqlitebrowser
    tar))
 
 (define jjba23-system-packages

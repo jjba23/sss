@@ -42,7 +42,7 @@
 (defvar rp-foam "#9ccfd8" )
 (defvar rp-pine "#42859f")
 (defvar rp-text "#e0def4") 
-(defvar rp-surface "#1f1d2e")
+(defvar rp-surface "#222222")
 (defvar rp-base "#111111" )
 
 (stumpwm:set-prefix-key (stumpwm:kbd "C-t"))
@@ -103,7 +103,7 @@
 (setf *startup-message* (format nil "Welcome to StumpWM master ~a!" user-name))
 
 (setf *mode-line-border-color* rp-surface
-      *mode-line-border-width* 3
+      *mode-line-border-width* 1
       *mode-line-pad-x* 4
       *mode-line-pad-y* 4)
 
@@ -117,19 +117,36 @@
 (set-float-focus-color rp-foam)
 (set-float-unfocus-color rp-surface)
 
+;; (setf *screen-mode-line-format*
+;;       (list
+;;        "[^B^3%n^b] ^4%W"
+;;        "^>"
+;;        ;;"%m"
+;;        '(:eval (format nil "^5|Volume: ~D" (show-current-volume)))
+;;        '(:eval (when (or (not (empty-directory-p "/sys/class/backlight")) (not (empty-directory-p "/dev/backlight"))) (format nil "^6|Backlight: ~D%" (show-brightness-value))))
+;;        '(:eval (when (or (not (empty-directory-p "/sys/class/power_supply")) (not (eq 255 (parse-integer (remove #\Newline (run-shell-command "apm -l" t)))))) (format nil "^5|Battery:~D" (show-battery-charge))))
+;;        '(:eval (when (or (not (empty-directory-p "/sys/class/power_supply")) (not (eq 255 (parse-integer (remove #\Newline (run-shell-command "apm -l" t)))))) (format nil " ~D" (show-battery-state))))
+;;        "^6|%D" ;maildir
+;;        "^5|%d"
+;;        ))
+(setf *time-modeline-string* "%A, %d %B %Y | %k:%M:%S %z")
+
 (setf *screen-mode-line-format*
       (list
        '(:eval (show-hostname))
-       (format nil " λ ~a @ GNU Guix | %d" small-user-name)
-       ;; "bat: %B"
-       ;; " | %C"
-       " | %M"
-       "| %g ")
+       (format nil " λ ~a @ GNU Guix | %d " small-user-name)
+       "| %g "
+        "^>"        
+        ;; "bat: %B"
+       ;;"CPU %C | "
+       '(:eval (format nil "Vol: ~D" (show-current-volume)))
+       "%M |     "
+       )
       )
 
 (xft:cache-fonts)
 (set-font `(
-            ,(make-instance 'xft:font :family "JetBrains Mono" :subfamily "Regular" :size 11 :antialias t)
+            ,(make-instance 'xft:font :family "JetBrains Mono" :subfamily "Regular" :size 10 :antialias t)
             )
           )
 
@@ -297,8 +314,8 @@
   (progn
     (update-color-map (current-screen))
     ;;(which-key-mode)
-    (gnewbg "[TERM]")
     (gnewbg "[WWW]")
+    (gnewbg "[TERM]")
     (grename "[EMACS]")
     (gnewbg "[FILES]")
     (gnewbg "[PRIV]")
