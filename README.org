@@ -17,3 +17,18 @@ Feel free to fork this, under the terms of the GNU GPL v3 or newer.
 As your user ~joe~ run commands from the Makefile, like ~make fr~ or make ~sr~.
 
 The system and home folders of users are managed independently of each other, in quite a loosely coupled manner.
+
+It's possible you need to some manual installations, and temporary workarounds, in order to install ~sss~ on a brand-new Guix installation. For example including ~nonguix~ in your channels (=~/.config/guix/channels.scm=). You might also need to install tools like Git and GNU make temporarily.
+
+#+begin_src  scheme
+  (cons* (channel
+        (name 'nonguix)
+        (url "https://gitlab.com/nonguix/nonguix")
+        (introduction
+         (make-channel-introduction
+          "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
+          (openpgp-fingerprint
+           "2A39 3FFF 68F4 EF7A 3D29 12AF 6F51 20A0 22FB B2D5"))))
+       %default-channels)
+
+#+end_src

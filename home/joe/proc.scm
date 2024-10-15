@@ -72,3 +72,18 @@
          kv)
         ))
     (close file-port)))
+
+(define (write-gtk3-conf kv file)
+  (let* ((file-port
+          (open-file file "a")))
+    (with-output-to-port file-port
+      (lambda ()
+        (display "[Settings]\n")
+        (for-each
+         (lambda(x)       
+           (display (format #f "~a = ~a\n" (car x) (cdr x))))     
+         kv)
+        ))
+    (close file-port)))
+
+

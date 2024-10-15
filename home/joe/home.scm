@@ -50,6 +50,9 @@
 (define (emacs-conf-file file)
   (format #f ".emacs.d/~a" file ))
 
+(define jjba23-picom-conf-location
+  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/picom.conf")
+
 (define jjba23-picom-conf
   '((backend . "\"xrender\"")
     (corner-radius . "12")
@@ -60,8 +63,8 @@
     (shadow-radius . "12")
     (shadow-opacity . "0.75")))
 
-(define jjba23-audio-service
-  (service home-pipewire-service-type))
+(define jjba23-kitty-conf-location
+  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/kitty.conf")
 
 (define jjba23-kitty-conf
   '((font_family . "\"JetBrains Mono\"")
@@ -73,7 +76,6 @@
     ("map ctrl+y" . "paste_from_clipboard")
     ))
 
-
 (define jjba23-opengpg-conf
   (service home-gpg-agent-service-type
            (home-gpg-agent-configuration
@@ -81,28 +83,37 @@
              (file-append pinentry-emacs "/bin/pinentry-emacs"))
             (ssh-support? #t))))
 
-(define jjba23-xmodmap-conf '(
-                              ("remove Lock" . "Caps_Lock")
+(define jjba23-xmodmap-conf-location
+  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/xmodmap")
+
+(define jjba23-xmodmap-conf '(("remove Lock" . "Caps_Lock")
                               ("keysym Caps_Lock" . "Control_L")
                               ("add Control" . "Control_L")
                               ))
 
-(define jjba23-picom-conf-location
-  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/picom.conf")
+(define jjba23-gtk3-conf-location
+  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/gtk-3.0-settings.ini")
 
-(define jjba23-kitty-conf-location
-  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/kitty.conf")
+(define jjba23-gtk3-conf '((gtk-icon-theme-name . "Yaru-sage-dark")
+                           (gtk-theme-name . "Yaru-sage-dark")
+                           (gtk-font-name . "Roboto Condensed 12")
+                           (gtk-key-theme-name . "Emacs")
+                           (gtk-enable-event-sounds . "0")
+                           (gtk-cursor-theme-name . "Yaru-sage-dark")
+                           (gtk-enable-input-feedback-sounds . "0")
+                           ))
 
-(define jjba23-xmodmap-conf-location
-  "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/xmodmap")
-
+(define jjba23-audio-service
+  (service home-pipewire-service-type))
 
 (define jjba23-home-files-service
   (service home-files-service-type
 	   `((".config/kitty/kitty.conf" ,(local-file  jjba23-kitty-conf-location))
              (".stumpwm.d/init.lisp" ,(local-file "stumpwm/init.lisp"))
-             (".config/picom.conf" ,(local-file  jjba23-picom-conf-location))
+             (".config/picom.conf" ,(local-file jjba23-picom-conf-location))
              (".xmodmap" ,(local-file  jjba23-xmodmap-conf-location))
+             (".config/gtk-3.0/settings.ini" ,(local-file jjba23-gtk3-conf-location))
+             (".config/guix/channels.scm" ,(local-file "channels.scm"))
              (,(emacs-conf-file "init.el")
               ,(local-file "emacs/init.el"))
 	     (,(emacs-conf-file "early-init.el")
@@ -138,6 +149,13 @@
  (lambda ()
    (write-xmodmap-conf jjba23-xmodmap-conf
                        jjba23-xmodmap-conf-location) ))
+
+(display "generating GTK 3 configuration...\n")
+(mk-conf
+ jjba23-gtk3-conf-location
+ (lambda ()
+   (write-gtk3-conf jjba23-gtk3-conf
+                    jjba23-gtk3-conf-location) ))
 
 (display "configuring home environment...")
 (home-environment
