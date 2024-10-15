@@ -20,7 +20,6 @@
 (load-module "ttf-fonts")
 (load-module "clx-truetype")
 (load-module "stumptray")
-(load-module "screenshot")
 ;; (load-module "trivial-cltl2")
 ;; (load-module "slynk")
 
