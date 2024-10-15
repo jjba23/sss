@@ -52,7 +52,13 @@
 
 (define jjba23-picom-conf
   '((backend . "\"xrender\"")
-    (corner-radius . 12)))
+    (corner-radius . "12")
+    (fading . "true")
+    (fade-in-step . "0.10")
+    (fade-out-step . "0.10")
+    (shadow . "true")
+    (shadow-radius . "12")
+    (shadow-opacity . "0.75")))
 
 (define jjba23-audio-service
   (service home-pipewire-service-type))
@@ -133,6 +139,7 @@
    (write-xmodmap-conf jjba23-xmodmap-conf
                        jjba23-xmodmap-conf-location) ))
 
+(display "configuring home environment...")
 (home-environment
  (packages
   (list pfetch))

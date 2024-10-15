@@ -79,36 +79,39 @@
 
 (define jjba23-wm-packages
   (list
-   stumpwm
-   sbcl-stumpwm-screenshot
-   sbcl-stumpwm-ttf-fonts
-   sbcl-stumpwm-cpu
-   sbcl-stumpwm-mem
-   sbcl-stumpwm-net
-   sbcl-stumpwm-hostname
-   sbcl-zpb-ttf
-   sbcl-alexandria
-   sbcl-stumpwm-swm-gaps
-   sbcl-zpng
-   sbcl-salza2
-   sbcl-trivial-gray-streams
-   sbcl-cl-vectors
-   sbcl-cl-fad
-   sbcl-clx-truetype
    cl-asdf
+   picom
+   sbcl-alexandria
    sbcl-asdf-system-connections
    sbcl-bordeaux-threads
+   sbcl-cl-environments
+   sbcl-cl-fad
+   sbcl-cl-store
+   sbcl-cl-vectors
+   sbcl-clx-truetype
+   sbcl-clx-xembed
    sbcl-global-vars
+   sbcl-salza2
+   sbcl-slynk
+   sbcl-stumpwm-cpu
+   sbcl-stumpwm-hostname
+   sbcl-stumpwm-mem
+   sbcl-stumpwm-net
+   sbcl-stumpwm-notify
+   sbcl-stumpwm-screenshot
+   sbcl-stumpwm-stumptray
+   sbcl-stumpwm-swm-gaps
+   sbcl-stumpwm-ttf-fonts
+   sbcl-stumpwm-wifi
+   sbcl-trivial-cltl2
    sbcl-trivial-features
    sbcl-trivial-garbage
-   sbcl-cl-store
-   sbcl-stumpwm-stumptray
-   sbcl-trivial-cltl2
-   sbcl-clx-xembed
-   sbcl-slynk
-   sbcl-cl-environments
+   sbcl-trivial-gray-streams
+   sbcl-xml-emitter
+   sbcl-zpb-ttf
+   sbcl-zpng
    stumpish
-   picom
+   stumpwm
    ))
 
 (define jjba23-dev-packages
