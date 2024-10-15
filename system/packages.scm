@@ -37,6 +37,7 @@
 	     (gnu packages libreoffice)
              (gnu packages wm)
              (gnu packages ncurses)
+             (gnu packages mate)
              (gnu packages multiprecision)
              (gnu packages gcc)
              (gnu packages lxde)
@@ -138,7 +139,7 @@
    nginx
    watchexec
    git
-   pcmanfm   
+
    pavucontrol
 
    nix
@@ -180,6 +181,11 @@
    zip
    flameshot
    unzip
+   caja
+   pluma
+   eom
+   atril
+   engrampa
    tar))
 
 (define jjba23-system-packages
