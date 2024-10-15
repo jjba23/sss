@@ -235,6 +235,14 @@
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "p") '*my-end-session-keymap*)
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "/") "exec rofi -combi-modi drun,window -show combi")
 
+(defvar *my-screenshot-keymap*
+  (let ((m (make-sparse-keymap)))
+    (define-key m (stumpwm:kbd "d") "exec flameshot gui -d 3000")
+    (define-key m (stumpwm:kbd "s") "exec flameshot full")
+    (define-key m (stumpwm:kbd "S") "exec flameshot gui")
+    m))
+
+
 (defvar *my-application-keymap*
   (let ((m (make-sparse-keymap)))
 
@@ -269,6 +277,10 @@
 
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-=") '*my-screen-config-keymap*)
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "=") '*my-screen-config-keymap*)
+
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-.") '*my-screenshot-keymap*)
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd ".") '*my-screenshot-keymap*)
+
 
 ;; (defvar *my-keyboard-keymap*
 ;;   (let ((m (make-sparse-keymap)))

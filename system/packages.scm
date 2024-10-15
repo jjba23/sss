@@ -98,7 +98,6 @@
    sbcl-stumpwm-mem
    sbcl-stumpwm-net
    sbcl-stumpwm-notify
-   sbcl-stumpwm-screenshot
    sbcl-stumpwm-stumptray
    sbcl-stumpwm-swm-gaps
    sbcl-stumpwm-ttf-fonts
@@ -179,6 +178,7 @@
    fuse-exfat
    tmon
    zip
+   flameshot
    unzip
    tar))
 
