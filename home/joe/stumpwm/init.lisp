@@ -146,7 +146,7 @@
 
 (xft:cache-fonts)
 (set-font `(
-            ,(make-instance 'xft:font :family "Intel One Mono" :subfamily "Regular" :size 10 :antialias t)
+            ,(make-instance 'xft:font :family "Intel One Mono" :size 10 :antialias t)
             )
           )
 
