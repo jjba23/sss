@@ -26,6 +26,7 @@
              (gnu packages web-browsers) 
              (gnu packages docker)
              (gnu packages lisp-xyz)
+             (gnu packages fontutils)
              (gnu packages lisp)
              (gnu packages image-viewers)
              (gnu packages gnome-xyz)
@@ -72,6 +73,7 @@
 
 (define jjba23-font-packages
   (list
+   fontconfig
    font-google-roboto
    font-jetbrains-mono
    font-intel-one-mono
