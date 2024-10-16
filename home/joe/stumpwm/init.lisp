@@ -270,7 +270,7 @@
     (define-key *root-map* (stumpwm:kbd "w") "exec icecat")
     (define-key *root-map* (stumpwm:kbd "m") "exec icedove")
     (define-key m (kbd "t") "exec kitty")
-    (define-key m (kbd "f") "exec caja")
+    (define-key m (kbd "f") "exec thunar")
     (define-key m (kbd "a") "exec pavucontrol")
     ;;(define-key m (kbd "b") "exec bluedevil-wizard")
     (define-key m (kbd "/") "exec rofi -combi-modi drun,window -show combi")

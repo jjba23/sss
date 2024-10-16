@@ -38,10 +38,9 @@
 	     (gnu packages libreoffice)
              (gnu packages wm)
              (gnu packages ncurses)
-             (gnu packages mate)
+             (gnu packages xfce)
              (gnu packages multiprecision)
              (gnu packages gcc)
-             (gnu packages lxde)
              (gnu packages aspell)
 	     (gnu packages rust-apps)
              (gnu packages inkscape)
@@ -67,8 +66,6 @@
 (use-modules (gnu packages web))
 
 (use-modules (gnu packages package-management))
-
-
 
 (define jjba23-theme-packages
   (list yaru-theme))
@@ -170,7 +167,7 @@
    feh
    containerd
    xmodmap
-   nyxt
+   ;;nyxt
    docker   
    gparted
    xrandr
@@ -184,11 +181,10 @@
    zip
    flameshot
    unzip
-   caja
-   pluma
-   eom
-   atril
-   engrampa
+   thunar
+   xarchiver
+   ristretto
+   orage
    sqlitebrowser
    tar))
 

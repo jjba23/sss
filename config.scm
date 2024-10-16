@@ -67,7 +67,7 @@
           %base-packages))
  
  (services
-  (cons* (service mate-desktop-service-type)
+  (cons* (service xfce-desktop-service-type)
          (service nix-service-type)
          (service containerd-service-type)
          (service docker-service-type)
