@@ -61,17 +61,14 @@
              (gnu packages networking)
 	     (gnu packages gnuzilla))
 
-(use-modules (guix git-download))
-(use-modules (guix build-system font))
+(use-modules (guix git-download) (guix build-system font))
 (use-modules ((guix licenses) #:prefix license:))
 
 (use-modules (guix packages)
+             (gnu packages linux)
+             (gnu packages web)
+             (gnu packages package-management)
              (gnu packages base))
-(use-modules (gnu packages linux))
-
-(use-modules (gnu packages web))
-
-(use-modules (gnu packages package-management))
 
 (define jjba23-theme-packages
   (list yaru-theme))
@@ -112,10 +109,8 @@ mind.")
    font-liberation
    font-google-noto))
 
-(define jjba23-wm-packages
+(define jjba23-sbcl-packages
   (list
-   cl-asdf
-   picom
    sbcl-alexandria
    sbcl-asdf-system-connections
    sbcl-bordeaux-threads
@@ -144,6 +139,13 @@ mind.")
    sbcl-xml-emitter
    sbcl-zpb-ttf
    sbcl-zpng
+   ))
+
+(define jjba23-wm-packages
+  (list
+   cl-asdf
+   picom
+   
    stumpish
    stumpwm
    ))
@@ -152,32 +154,38 @@ mind.")
 (define jjba23-dev-packages
   (list
    (specification->package "openjdk@21.0.2")
+   
+   ))
 
+(define jjba23-coreutils
+  (list
+   htop
+   emacs
+   openssh
+   dbus
+   ncurses
+   screen
+   tar zip unzip
+   gmp
+   gcc
+   curl
+   ripgrep
+   (specification->package "make")
+   nix
+   coreutils
    ))
 
 (define jjba23-other-system-packages
   (list
-   htop
-   emacs
    icecat
    icedove
-   openssh
-   dbus
-   ncurses
-   gmp
-   gcc
-   screen
-   (specification->package "make")
-   coreutils
+   
    flatpak
    pipewire
    nginx
    watchexec
    git
-
-   pavucontrol
-
-   nix
+   pavucontrol   
    
    ;; (if x86 tlp tlpui)
    xz
@@ -187,11 +195,11 @@ mind.")
    kitty
    arandr
    httpie
-   curl
+
    inkscape
    fzf
    vlc
-   ripgrep
+
    sqlite
    (specification->package "ungoogled-chromium")
    obs
@@ -213,20 +221,22 @@ mind.")
    exfat-utils
    fuse-exfat
    tmon
-   zip
+   
    flameshot
-   unzip
+   
    thunar
    xarchiver
    ristretto
    orage
    sqlitebrowser
-   tar))
+   ))
 
 (define jjba23-system-packages
   (append
    jjba23-other-system-packages
    jjba23-wm-packages
    jjba23-font-packages
+   jjba23-sbcl-packages
    jjba23-dev-packages
+   jjba23-coreutils
    jjba23-theme-packages))

@@ -2,8 +2,7 @@
 
 A Lisp machine adventure, where GNU and Lisp are celebrated, GNU is love, GNU is life. 
 
-Find the divine sayings, and the destined configurations, all my Guix, Scheme, Common Lisp and Emacs Lisp configurations here for learning you a fully Lisp machine with GNU/Linux for a great good..
-
+Find the divine sayings, and the destined configurations, all my Guix, Scheme, Common Lisp and Emacs Lisp configurations here for learning you a fully Lisp machine with GNU/Linux for a great good.
 
 
 * Words of Advice
