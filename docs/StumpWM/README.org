@@ -1,0 +1,27 @@
+
+* Fonts
+
+This gave me quite the headache when I tried to set this up: in order to use TTF fonts (note: it is not possible to use OTF fonts, see below), we need to use the ttf-fonts module which relies on the clx-truetype library. 
+
+#+begin_src scheme
+  (load-module "clx-truetype")
+  (xft:cache-fonts)
+#+end_src
+
+If you want a list of font families available, you can execute the following:
+
+#+begin_src  scheme
+  (clx-truetype:get-font-families)
+#+end_src
+
+If you want to know the subfamilies of a certain family, you can execute this:
+
+#+begin_src  scheme
+  (clx-truetype:get-font-subfamilies "Family Name")
+#+end_src
+
+The documentation says we should be able to also use OTF fonts, but so far I’ve had no luck loading one.
+
+Loading more than one font to use some fallback fonts also doesn’t seem to work, unlike specified in the documentation (I wanted to use a CJK font, but it doesn’t appear to work), we need to manually change the font used which isn’t very user-friendly, especially if you might have CJK characters appear in otherwise regular text.
+
+Something that didn’t click immediately for me (and I think StumpWM’s documentation on this could be improved) is that set-font can be used to set either one main font for StumpWM, as one might guess reading the documentation — or you can set a list of them! 
