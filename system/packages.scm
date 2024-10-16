@@ -75,7 +75,6 @@
    font-google-roboto
    font-jetbrains-mono
    font-intel-one-mono
-   font-ibm-plex
    font-google-noto))
 
 (define jjba23-wm-packages

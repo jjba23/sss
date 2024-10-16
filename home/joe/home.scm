@@ -158,6 +158,10 @@
 	     (,(emacs-conf-file "early-init.el")
               ,(local-file "emacs/early-init.el")))))
 
+(syscall "mkdir -p ~/.fonts")
+(syscall "cp -rfv resources/fonts/IntelOneMono/*.ttf ~/.fonts/")
+(syscall "fc-cache -fv")
+
 (display "configuring home environment...")
 (home-environment
  (packages
@@ -171,4 +175,6 @@
    (service home-dbus-service-type)
    jjba23-audio-service
    )))
+
+
 
