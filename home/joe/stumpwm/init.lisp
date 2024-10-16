@@ -134,7 +134,7 @@
 (setf *screen-mode-line-format*
       (list
        '(:eval (show-hostname))
-       (format nil " λ ~a @ GNU Guix | %d " small-user-name)
+       (format nil " ~a @ GNU Guix | %d " small-user-name)
        "| %g "
         "^>"        
         ;; "bat: %B"
