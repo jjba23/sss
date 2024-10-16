@@ -54,14 +54,7 @@
  
  (file-systems
   (append
-   (list (file-system
-	  (device "/dev/nvme0n1p3")
-	  (mount-point "/")
-	  (type "ext4"))
-	 (file-system
-	  (device "/dev/nvme0n1p1")
-	  (mount-point "/boot/efi")
-	  (type "vfat")))
+   jjba23-filesystems
    %base-file-systems))
  
  (users
@@ -78,8 +71,9 @@
          (service containerd-service-type)
          (service docker-service-type)
          (service slim-service-type)
-         (modify-services %desktop-services
-                          (delete gdm-service-type))
+         (modify-services
+          %desktop-services
+          (delete gdm-service-type))
          )))
 
 
