@@ -117,13 +117,13 @@
 (set-float-focus-color rp-foam)
 (set-float-unfocus-color rp-surface)
 
-(setf *time-modeline-string* (format nil "%k:%M:%S %z | ~a @ SSS/Guix - %A, %d %B %Y - " small-user-name))
+(setf *time-modeline-string* (format nil "  %k:%M:%S %z | ~a @ SSS/Guix - %A, %d %B %Y - " small-user-name))
 
 (setf *screen-mode-line-format*
       (list
        '(:eval (show-hostname))
        "%d "
-       "- %g "
+       " %g "
         "^>"        
 
        '(:eval (format nil "Vol: ~D" (show-current-volume)))
