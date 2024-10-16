@@ -82,7 +82,7 @@
   "My personal choice for monospaced font family." 
   :type 'string)
 
-(defcustom jjba-font-sans "Roboto Condensed"
+(defcustom jjba-font-sans "Liberation Sans"
   "My personal choice for sans font family." 
   :type 'string)
 

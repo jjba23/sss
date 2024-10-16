@@ -103,7 +103,7 @@
 (setf *startup-message* (format nil "Master ~a | Welcome to StumpWM!" user-name))
 
 (setf *mode-line-border-color* rp-surface
-      *mode-line-border-width* 1
+      *mode-line-border-width* 0
       *mode-line-pad-x* 6
       *mode-line-pad-y* 6)
 
@@ -117,7 +117,7 @@
 (set-float-focus-color rp-foam)
 (set-float-unfocus-color rp-surface)
 
-(setf *time-modeline-string* (format nil "  %k:%M:%S %z | ~a @ SSS/Guix - %A, %d %B %Y - " small-user-name))
+(setf *time-modeline-string* (format nil "  %k:%M:%S %z - ~a @ SSS/Guix - %A, %d %B %Y   " small-user-name))
 
 (setf *screen-mode-line-format*
       (list
@@ -126,8 +126,8 @@
        " %g "
         "^>"        
 
-       '(:eval (format nil "Vol: ~D" (show-current-volume)))
-       "%M -     "
+       '(:eval (format nil "Vol: ~a" (show-current-volume)))
+       "%M      "
        )
       )
 

@@ -96,7 +96,7 @@
 
 (define jjba23-gtk3-conf '((gtk-icon-theme-name . "Yaru-sage-dark")
                            (gtk-theme-name . "Yaru-sage-dark")
-                           (gtk-font-name . "Roboto Condensed 12")
+                           (gtk-font-name . "Liberation Sans 12")
                            (gtk-key-theme-name . "Emacs")
                            (gtk-enable-event-sounds . "0")
                            (gtk-cursor-theme-name . "Yaru-sage-dark")

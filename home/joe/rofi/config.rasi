@@ -8,8 +8,9 @@ configuration {
       sorting-method:    "name";
   }
   
-font: "Roboto Condensed 16";
+font: "Liberation Sans 17";
 show-icons: true;
+icon-size: 17;
 icon-theme: "Yaru-sage-dark";
 
 /*	modes: "window,drun,run,ssh";*/
