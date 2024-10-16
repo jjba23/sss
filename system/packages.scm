@@ -15,6 +15,7 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with byggsteg.  If not, see <https://www.gnu.org/licenses/>.
 
+
 (use-modules (gnu)
 	     (gnu packages admin)
 	     (gnu packages screen)	     
@@ -60,6 +61,10 @@
              (gnu packages networking)
 	     (gnu packages gnuzilla))
 
+(use-modules (guix git-download))
+(use-modules (guix build-system font))
+(use-modules ((guix licenses) #:prefix license:))
+
 (use-modules (guix packages)
              (gnu packages base))
 (use-modules (gnu packages linux))
@@ -71,11 +76,38 @@
 (define jjba23-theme-packages
   (list yaru-theme))
 
+(define font-jjba23-intel-one-mono
+  (package
+   (name "font-jjba23-intel-one-mono")
+   (version "1.4.0")
+   (source (origin
+            (method git-fetch)
+            (uri (git-reference
+                  (url "https://github.com/intel/intel-one-mono")
+                  (commit (string-append "V" version))))
+            (file-name (git-file-name name version))
+            (sha256
+             (base32
+              "1snwxpcdxl62z1mcax19bmsmbw0hi6m0cqkxqz79ydynfch95sd0"))))
+   ;;(outputs '("out" "ttf" "woff"))
+   (build-system font-build-system)
+   ;; (arguments
+   ;;  `(#:phases %standard-phases))
+   (home-page "https://github.com/intel/intel-one-mono")
+   (synopsis "Expressive monospaced font family")
+   (description
+    "This package provides Intel One Mono, an expressive monospaced font
+family that's built with clarity, legibility, and the needs of developers in
+mind.")
+   (license license:silofl1.1)))
+
+
 (define jjba23-font-packages
   (list
    fontconfig
    font-google-roboto
    font-jetbrains-mono
+   font-jjba23-intel-one-mono
    font-intel-one-mono
    font-google-noto))
 
