@@ -71,10 +71,11 @@
          (service nix-service-type)
          (service containerd-service-type)
          (service docker-service-type)
-         (service slim-service-type)
-         (modify-services
-          %desktop-services
-          (delete gdm-service-type))
+         ;;(service slim-service-type)
+         %desktop-services
+         ;; (modify-services
+         ;;  %desktop-services
+         ;;  (delete gdm-service-type))
          )))
 
 
