@@ -23,6 +23,7 @@
 
 (use-modules (gnu services xorg))
 
+(load "./per-host.scm")
 (load "./system/packages.scm")
 
 (use-service-modules networking desktop docker)
