@@ -100,12 +100,12 @@
 ;;(setf *time-modeline-string* "%F %H:%M")
 (setf *window-format* "%n: %30t")
 
-(setf *startup-message* (format nil "Welcome to StumpWM master ~a!" user-name))
+(setf *startup-message* (format nil "Master ~a | Welcome to StumpWM!" user-name))
 
 (setf *mode-line-border-color* rp-surface
       *mode-line-border-width* 1
-      *mode-line-pad-x* 4
-      *mode-line-pad-y* 4)
+      *mode-line-pad-x* 6
+      *mode-line-pad-y* 6)
 
 (setf *mode-line-background-color* rp-base
       *mode-line-foreground-color* rp-text)
@@ -117,30 +117,17 @@
 (set-float-focus-color rp-foam)
 (set-float-unfocus-color rp-surface)
 
-;; (setf *screen-mode-line-format*
-;;       (list
-;;        "[^B^3%n^b] ^4%W"
-;;        "^>"
-;;        ;;"%m"
-;;        '(:eval (format nil "^5|Volume: ~D" (show-current-volume)))
-;;        '(:eval (when (or (not (empty-directory-p "/sys/class/backlight")) (not (empty-directory-p "/dev/backlight"))) (format nil "^6|Backlight: ~D%" (show-brightness-value))))
-;;        '(:eval (when (or (not (empty-directory-p "/sys/class/power_supply")) (not (eq 255 (parse-integer (remove #\Newline (run-shell-command "apm -l" t)))))) (format nil "^5|Battery:~D" (show-battery-charge))))
-;;        '(:eval (when (or (not (empty-directory-p "/sys/class/power_supply")) (not (eq 255 (parse-integer (remove #\Newline (run-shell-command "apm -l" t)))))) (format nil " ~D" (show-battery-state))))
-;;        "^6|%D" ;maildir
-;;        "^5|%d"
-;;        ))
-(setf *time-modeline-string* "%A, %d %B %Y | %k:%M:%S %z")
+(setf *time-modeline-string* (format nil "%k:%M:%S %z | ~a @ SSS/Guix - %A, %d %B %Y - " small-user-name))
 
 (setf *screen-mode-line-format*
       (list
        '(:eval (show-hostname))
-       (format nil " ~a @ GNU Guix | %d " small-user-name)
-       "| %g "
+       "%d "
+       "- %g "
         "^>"        
-        ;; "bat: %B"
-       ;;"CPU %C | "
+
        '(:eval (format nil "Vol: ~D" (show-current-volume)))
-       "%M |     "
+       "%M -     "
        )
       )
 
@@ -271,7 +258,8 @@
     (define-key *root-map* (stumpwm:kbd "m") "exec icedove")
     (define-key m (kbd "t") "exec kitty")
     (define-key m (kbd "f") "exec thunar")
-    (define-key m (kbd "a") "exec pavucontrol")
+    (define-key m (kbd "a") "exec pavucontrol") 
+    (define-key m (kbd ":") "exec feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
     ;;(define-key m (kbd "b") "exec bluedevil-wizard")
     (define-key m (kbd "/") "exec rofi -combi-modi drun,window -show combi")
     ;; (define-key m (stumpwm:kbd "1") "exec 1password")

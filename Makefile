@@ -17,6 +17,8 @@ echo-complete:
 full-rebuild:
 	make system-reconfigure
 	make joe-reconfigure
+	sudo fc-cache -rv
+	fc-cache -rv
 fr:
 	make full-rebuild
 gc:

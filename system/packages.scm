@@ -109,6 +109,7 @@ mind.")
    font-jetbrains-mono
    font-jjba23-intel-one-mono
    font-intel-one-mono
+   font-liberation
    font-google-noto))
 
 (define jjba23-wm-packages
@@ -146,6 +147,7 @@ mind.")
    stumpish
    stumpwm
    ))
+
 
 (define jjba23-dev-packages
   (list
