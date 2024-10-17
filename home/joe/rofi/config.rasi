@@ -14,4 +14,8 @@ configuration {
  icon-theme: "Yaru-sage-dark";
 }
 
+
+
 @theme "gruvbox-dark-hard"
+
+element-icon { size: 2.3ch ; }
