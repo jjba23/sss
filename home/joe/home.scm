@@ -44,7 +44,6 @@
        ("fr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make fr")
        ("sr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make sr")
        ("jr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make jr")
-       ("nix-develop" . "nix --extra-experimental-features 'nix-command flakes' develop")
        )))
    ))
 
@@ -162,6 +161,7 @@
              (".gitconfig-personal" ,(local-file "git/gitconfig-personal.ini"))
              (".gitconfig-work" ,(local-file "git/gitconfig-work.ini"))
              (".gitignore-global" ,(local-file "git/gitignore-global"))
+             (".config/nix/nix.conf" ,(local-file "nix/nix.conf"))
              (,(emacs-conf-file "init.el")
               ,(local-file "emacs/init.el"))
 	     (,(emacs-conf-file "early-init.el")
