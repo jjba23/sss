@@ -21,6 +21,7 @@
 	     (gnu packages screen)	     
 	     (gnu packages emacs)
              (gnu packages databases)
+             (gnu packages shellutils)
              (gnu packages xorg)
              (gnu packages file-systems)
              (gnu packages display-managers)
@@ -231,6 +232,7 @@ mind.")
    ristretto
    orage
    sqlitebrowser
+   direnv
    ))
 
 (define jjba23-system-packages

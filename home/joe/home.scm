@@ -44,6 +44,7 @@
        ("fr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make fr")
        ("sr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make sr")
        ("jr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make jr")
+       ("nix-develop" . "nix --extra-experimental-features 'nix-command flakes' develop")
        )))
    ))
 
