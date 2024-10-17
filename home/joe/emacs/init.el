@@ -160,24 +160,24 @@ According to size, color and font family"
 		        :font jjba-font-mono)
     (set-face-attribute 'variable-pitch nil 
 		        :font jjba-font-sans
-                        :height (tekengrootte-mk-font-size 1.2))
+                        :height (tekengrootte-mk-font-size 1.05))
 
     (set-face-attribute 'org-default nil 
-		        :height (tekengrootte-mk-font-size 1.2) 
+		        :height (tekengrootte-mk-font-size 1.05)
 		        :font jjba-font-sans)
     (set-face-attribute 'button nil :background 'unspecified
                         :weight 'bold)
-    (set-face-attribute 'org-block nil                       
+    (set-face-attribute 'org-block nil
 		        :font jjba-font-mono
-                        :height (tekengrootte-mk-font-size 1.1))
+                        :height (tekengrootte-mk-font-size 1.05))
     (set-face-attribute 'font-lock-doc-face nil
                         :foreground (ef-themes-get-color-value 'yellow-faint))
     (set-face-attribute 'org-code nil                       
 		        :font jjba-font-mono
-                        :height (tekengrootte-mk-font-size 1.1))
+                        :height (tekengrootte-mk-font-size 1.05))
     (set-face-attribute 'org-verbatim nil                       
 		        :font jjba-font-mono
-                        :height (tekengrootte-mk-font-size 1.1))
+                        :height (tekengrootte-mk-font-size 1.05))
     (set-face-attribute 'org-level-1 nil 
 		        :height (tekengrootte-mk-font-size 1.2))
     (set-face-attribute 'org-level-2 nil 
