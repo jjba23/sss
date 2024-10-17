@@ -167,6 +167,12 @@ According to size, color and font family"
 		        :font jjba-font-sans)
     (set-face-attribute 'button nil :background 'unspecified
                         :weight 'bold)
+    (set-face-attribute 'org-block nil                       
+		        :font jjba-font-mono
+                        :height (tekengrootte-mk-font-size 1.1))
+    (set-face-attribute 'org-code nil                       
+		        :font jjba-font-mono
+                        :height (tekengrootte-mk-font-size 1.1))
     (set-face-attribute 'org-level-1 nil 
 		        :height (tekengrootte-mk-font-size 1.2))
     (set-face-attribute 'org-level-2 nil 
@@ -572,11 +578,7 @@ According to size, color and font family"
     (variable-pitch-mode 1)
     (org-modern-mode)
     (org-indent-mode)
-    (auto-fill-mode 0)
-    (set-face-attribute 'org-block nil                       
-		        :font jjba-font-mono)
-    (set-face-attribute 'org-code nil                       
-		        :font jjba-font-mono)))
+    (auto-fill-mode 0)))
 
 (use-package pandoc-mode :ensure t)
 
