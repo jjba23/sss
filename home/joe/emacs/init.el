@@ -106,6 +106,7 @@
         '((("sss" . "~/Ontwikkeling/Persoonlijk/sss/")
            ("notes" . "~/Ontwikkeling/Persoonlijk/private-notes/")
            ("emacs config" . "~/Ontwikkeling/Persoonlijk/sss/home/joe/emacs/init.el")
+           ("stumpwm" . "~/Ontwikkeling/Persoonlijk/sss/home/joe/stumpwm/init.lisp")
            )
           (("wikimusic-api" . "~/Ontwikkeling/Persoonlijk/wikimusic-api/")
            ("wikimusic-ssr" . "~/Ontwikkeling/Persoonlijk/wikimusic-ssr/")
@@ -628,10 +629,10 @@ According to size, color and font family"
   (interactive) 
   (find-file "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/emacs/init.el"))
 
-(defun jjba-bookmark-xfce-config ()
-  "Visit jjba bookmark: XFCE main xfconf config file."
+(defun jjba-bookmark-stumpwm-config ()
+  "Visit jjba bookmark: StumpWM main config file."
   (interactive) 
-  (find-file "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/xfce/"))
+  (find-file "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/stumpwm/init.lisp"))
 
 (defun new-frame-setup (frame)
   (if (display-graphic-p frame)
