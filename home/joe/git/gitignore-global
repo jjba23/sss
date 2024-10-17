@@ -3,3 +3,4 @@ bloop/
 .stack-work
 target
 metals.sbt
+.direnv/
