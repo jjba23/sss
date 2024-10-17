@@ -86,22 +86,24 @@
 (define jjba23-xmodmap-conf-location
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/xmodmap")
 
-(define jjba23-xmodmap-conf '(("remove Lock" . "Caps_Lock")
-                              ("keysym Caps_Lock" . "Control_L")
-                              ("add Control" . "Control_L")
-                              ))
+(define jjba23-xmodmap-conf
+  '(("remove Lock" . "Caps_Lock")
+    ("keysym Caps_Lock" . "Control_L")
+    ("add Control" . "Control_L")
+    ))
 
 (define jjba23-gtk3-conf-location
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/gtk-3.0-settings.ini")
 
-(define jjba23-gtk3-conf '((gtk-icon-theme-name . "Yaru-sage-dark")
-                           (gtk-theme-name . "Yaru-sage-dark")
-                           (gtk-font-name . "Liberation Sans 12")
-                           (gtk-key-theme-name . "Emacs")
-                           (gtk-enable-event-sounds . "0")
-                           (gtk-cursor-theme-name . "Yaru-sage-dark")
-                           (gtk-enable-input-feedback-sounds . "0")
-                           ))
+(define jjba23-gtk3-conf
+  '((gtk-icon-theme-name . "Yaru-sage-dark")
+    (gtk-theme-name . "Yaru-sage-dark")
+    (gtk-font-name . "Liberation Sans 12")
+    (gtk-key-theme-name . "Emacs")
+    (gtk-enable-event-sounds . "0")
+    (gtk-cursor-theme-name . "Yaru-sage-dark")
+    (gtk-enable-input-feedback-sounds . "0")
+    ))
 
 (define jjba23-audio-service
   (service home-pipewire-service-type))
