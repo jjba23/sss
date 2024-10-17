@@ -162,10 +162,8 @@
              (".gitconfig-work" ,(local-file "git/gitconfig-work.ini"))
              (".gitignore-global" ,(local-file "git/gitignore-global"))
              (".config/nix/nix.conf" ,(local-file "nix/nix.conf"))
-             (,(emacs-conf-file "init.el")
-              ,(local-file "emacs/init.el"))
-	     (,(emacs-conf-file "early-init.el")
-              ,(local-file "emacs/early-init.el")))))
+             (,(emacs-conf-file "init.el") ,(local-file "emacs/init.el"))
+	     (,(emacs-conf-file "early-init.el") ,(local-file "emacs/early-init.el")))))
 
 (display "configuring home environment...")
 (home-environment
