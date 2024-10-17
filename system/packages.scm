@@ -23,6 +23,7 @@
              (gnu packages databases)
              (gnu packages shellutils)
              (gnu packages xorg)
+             (gnu packages tree-sitter)
              (gnu packages file-systems)
              (gnu packages display-managers)
              (gnu packages web-browsers) 
@@ -154,6 +155,25 @@ mind.")
    ))
 
 
+(define jjba23-treesitter-packages
+  (list
+   tree-sitter
+   tree-sitter-bash
+   tree-sitter-dockerfile
+   tree-sitter-haskell
+   tree-sitter-css
+   tree-sitter-html
+   tree-sitter-nix
+   tree-sitter-scala
+   tree-sitter-markdown
+   tree-sitter-typescript
+   tree-sitter-scheme
+   tree-sitter-java
+   tree-sitter-javascript
+   
+   ))
+
+
 (define jjba23-dev-packages
   (list
    (specification->package "openjdk@21.0.2")
@@ -242,5 +262,6 @@ mind.")
    jjba23-font-packages
    jjba23-sbcl-packages
    jjba23-dev-packages
+   jjba23-treesitter-packages
    jjba23-coreutils
    jjba23-theme-packages))
