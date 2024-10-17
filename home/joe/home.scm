@@ -113,7 +113,11 @@
              (list (openssh-host (name "personal.github.com")
                                  (user "joe")
                                  (host-name "github.com")
-                                 (identity-file "~/.ssh/gitlab_prive"))))
+                                 (identity-file "~/.ssh/gitlab_prive"))
+                   (openssh-host (name "work.github.com")
+                                 (user "joe")
+                                 (host-name "github.com")
+                                 (identity-file "~/.ssh/work_id"))))
             (authorized-keys '()))))
 
 (display "generating picom configuration...\n")
