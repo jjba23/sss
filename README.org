@@ -4,12 +4,17 @@ A Lisp machine adventure, where GNU and Lisp are celebrated, GNU is love, GNU is
 
 Find the divine sayings, and the destined configurations, all my Guix, Scheme, Common Lisp and Emacs Lisp configurations here for learning you a fully Lisp machine with GNU/Linux for a great good.
 
+#+begin_html
+<img src="./resources/screenshots/17-10-2024.png"/>
+#+end_html
+
 
 * Words of Advice
 
 Learning Lisps is really going down a rabbit hole, but trust me, you will come out with a better understanding of programming as a whole out the other end.
 
 This configuration is heavily biased towards containing a ~joe~ user who also acts as administrator for most of the time.
+
 Your mileage may vary (YMMV).
 
 Feel free to fork this, under the terms of the GNU GPL v3 or newer.
