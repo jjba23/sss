@@ -61,7 +61,9 @@
              (gnu packages networking)
 	     (gnu packages gnuzilla))
 
-(use-modules (guix git-download) (guix build-system font))
+(use-modules (guix git-download)
+             (guix build-system font)
+             (guix build-system copy))
 (use-modules ((guix licenses) #:prefix license:))
 
 (use-modules (guix packages)
