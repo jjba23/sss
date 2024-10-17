@@ -161,6 +161,8 @@
              (".gitconfig-personal" ,(local-file "git/gitconfig-personal.ini"))
              (".gitconfig-work" ,(local-file "git/gitconfig-work.ini"))
              (".gitignore-global" ,(local-file "git/gitignore-global"))
+             (".gitmessage-personal" ,(local-file "git/gitmessage-personal"))
+             (".gitmessage-work" ,(local-file "git/gitmessage-work"))
              (".config/nix/nix.conf" ,(local-file "nix/nix.conf"))
              (,(emacs-conf-file "init.el") ,(local-file "emacs/init.el"))
 	     (,(emacs-conf-file "early-init.el") ,(local-file "emacs/early-init.el")))))
