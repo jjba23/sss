@@ -26,6 +26,8 @@
              (gnu packages tree-sitter)
              (gnu packages file-systems)
              (gnu packages display-managers)
+             (gnu packages music)
+             (gnu packages audio)
              (gnu packages web-browsers) 
              (gnu packages docker)
              (gnu packages lisp-xyz)
@@ -197,6 +199,12 @@ mind.")
    nix
    coreutils
    ))
+
+(define jjba23-music-packages
+  (list
+   spotifyd
+   lilypond
+   ardour))
 
 (define jjba23-other-system-packages
   (list
