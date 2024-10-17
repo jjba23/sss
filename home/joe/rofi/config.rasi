@@ -8,9 +8,10 @@ configuration {
       sorting-method:    "name";
   }
   
-font: "Liberation Sans 17";
+/* font: "Liberation Sans 17"; */
+font: "Intel One Mono 16";
 show-icons: true;
-icon-size: 17;
+icon-size: 24;
 icon-theme: "Yaru-sage-dark";
 
 /*	modes: "window,drun,run,ssh";*/

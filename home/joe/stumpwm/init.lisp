@@ -302,11 +302,12 @@
   (progn
     (update-color-map (current-screen))
     ;;(which-key-mode)
-    (gnewbg "[WWW]")
-    (gnewbg "[TERM]")
-    (grename "[EMACS]")
-    (gnewbg "[FILES]")
-    (gnewbg "[PRIV]")
+    (gnewbg " www")
+    (gnewbg " console")
+    (grename " emacs")
+    (gnewbg " files")
+    (gnewbg " priv")
+    (gnewbg " audio")
     (clear-window-placement-rules)
 
     (run-shell-command "feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")

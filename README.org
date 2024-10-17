@@ -7,9 +7,10 @@ Find the divine sayings, and the destined configurations, all my Guix, Scheme, C
 
 * Words of Advice
 
-Learning Lisps is really going down a rabbit hole, but trust me, you will come out with a better understanding out the other end.
+Learning Lisps is really going down a rabbit hole, but trust me, you will come out with a better understanding of programming as a whole out the other end.
 
-This configuration is heavily biased towards containing a ~joe~ user who also acts as administrator for most of the time. Your mileage may vary (YMMV).
+This configuration is heavily biased towards containing a ~joe~ user who also acts as administrator for most of the time.
+Your mileage may vary (YMMV).
 
 Feel free to fork this, under the terms of the GNU GPL v3 or newer.
 

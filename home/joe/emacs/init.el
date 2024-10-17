@@ -170,7 +170,12 @@ According to size, color and font family"
     (set-face-attribute 'org-block nil                       
 		        :font jjba-font-mono
                         :height (tekengrootte-mk-font-size 1.1))
+    (set-face-attribute 'font-lock-doc-face nil
+                        :foreground (ef-themes-get-color-value 'yellow-faint))
     (set-face-attribute 'org-code nil                       
+		        :font jjba-font-mono
+                        :height (tekengrootte-mk-font-size 1.1))
+    (set-face-attribute 'org-verbatim nil                       
 		        :font jjba-font-mono
                         :height (tekengrootte-mk-font-size 1.1))
     (set-face-attribute 'org-level-1 nil 
