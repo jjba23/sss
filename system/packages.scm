@@ -76,12 +76,12 @@
              (gnu packages package-management)
              (gnu packages base))
 
-(define jjba23-theme-packages
+(define sss-theme-packages
   (list yaru-theme))
 
-(define font-jjba23-intel-one-mono
+(define font-sss-intel-one-mono
   (package
-   (name "font-jjba23-intel-one-mono")
+   (name "font-sss-intel-one-mono")
    (version "1.4.0")
    (source (origin
             (method git-fetch)
@@ -105,17 +105,17 @@ mind.")
    (license license:silofl1.1)))
 
 
-(define jjba23-font-packages
+(define sss-font-packages
   (list
    fontconfig
    font-google-roboto
    font-jetbrains-mono
-   font-jjba23-intel-one-mono
+   font-sss-intel-one-mono
    font-intel-one-mono
    font-liberation
    font-google-noto))
 
-(define jjba23-sbcl-packages
+(define sss-sbcl-packages
   (list
    sbcl-alexandria
    sbcl-asdf-system-connections
@@ -147,7 +147,7 @@ mind.")
    sbcl-zpng
    ))
 
-(define jjba23-wm-packages
+(define sss-wm-packages
   (list
    cl-asdf
    picom
@@ -157,7 +157,7 @@ mind.")
    ))
 
 
-(define jjba23-treesitter-packages
+(define sss-treesitter-packages
   (list
    tree-sitter
    tree-sitter-bash
@@ -176,13 +176,13 @@ mind.")
    ))
 
 
-(define jjba23-dev-packages
+(define sss-dev-packages
   (list
    (specification->package "openjdk@21.0.2")
    
    ))
 
-(define jjba23-coreutils
+(define sss-coreutils
   (list
    htop
    emacs
@@ -200,13 +200,13 @@ mind.")
    coreutils
    ))
 
-(define jjba23-music-packages
+(define sss-music-packages
   (list
    spotifyd
    lilypond
    ardour))
 
-(define jjba23-other-system-packages
+(define sss-other-system-packages
   (list
    icecat
    icedove
@@ -263,13 +263,13 @@ mind.")
    direnv
    ))
 
-(define jjba23-system-packages
+(define sss-system-packages
   (append
-   jjba23-other-system-packages
-   jjba23-wm-packages
-   jjba23-font-packages
-   jjba23-sbcl-packages
-   jjba23-dev-packages
-   jjba23-treesitter-packages
-   jjba23-coreutils
-   jjba23-theme-packages))
+   sss-other-system-packages
+   sss-wm-packages
+   sss-font-packages
+   sss-sbcl-packages
+   sss-dev-packages
+   sss-treesitter-packages
+   sss-coreutils
+   sss-theme-packages))

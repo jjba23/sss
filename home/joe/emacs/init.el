@@ -5,7 +5,7 @@
 ;; Version: 0.6.0
 ;; Author: Josep Bigorra <jjbigorra@gmail.com>
 ;; Maintainer: Josep Bigorra <jjbigorra@gmail.com>
-;; URL: https://github.com/jjba23/
+;; URL: https://github.com/jjba23/sss
 ;; Package: emacs
 ;; Package-Requires: ((emacs "29.1"))
 
@@ -652,25 +652,25 @@ According to size, color and font family"
     ))
 
 
-(defun jjba23-joe-reconfigure ()
+(defun sss-joe-reconfigure ()
   "Rebuild GNU Guix Joe's configs."
   (interactive)
   (let ((default-directory "~/Ontwikkeling/Persoonlijk/sss"))
     (async-shell-command "make jr")))
 
-(defun jjba23-full-reconfigure ()
+(defun sss-full-reconfigure ()
   "Fully Rebuild GNU Guix Joe's configs and Joe's user."
   (interactive)
   (let ((default-directory "~/Ontwikkeling/Persoonlijk/sss"))
     (async-shell-command "make fr")))
 
-(defun jjba23-sys-reconfigure ()
+(defun sss-sys-reconfigure ()
   "Rebuild GNU Guix Joe's configs."
   (interactive)
   (let ((default-directory "~/Ontwikkeling/Persoonlijk/sss"))
     (async-shell-command "make sr")))
 
-(defun jjba23-sys-update ()
+(defun sss-sys-update ()
   "Update GNU Guix packages."
   (interactive)
   (let ((default-directory "~/Ontwikkeling/Persoonlijk/sss"))
@@ -704,10 +704,10 @@ According to size, color and font family"
          ("C-c l e" . eval-buffer)
          ("C-c s b" . flyspell-buffer)
          ("C-c s r" . flyspell-region)
-         ("C-c # j" . jjba23-joe-reconfigure)
-         ("C-c # s" . jjba23-sys-reconfigure)
-         ("C-c # u" . jjba23-sys-update)
-         ("C-c # f" . jjba23-full-reconfigure)
+         ("C-c # j" . sss-joe-reconfigure)
+         ("C-c # s" . sss-sys-reconfigure)
+         ("C-c # u" . sss-sys-update)
+         ("C-c # f" . sss-full-reconfigure)
          ("C-c s p" . flyspell-prog-mode))
   :hook ((text-mode . visual-line-mode)
          (after-make-frame-functions . new-frame-setup)

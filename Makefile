@@ -1,4 +1,4 @@
-JJBA23_DATE:=$(date)
+SSS_DATE:=$(date)
 
 update:
 	guix pull
@@ -13,7 +13,7 @@ joe-reconfigure:
 jr:
 	make joe-reconfigure
 echo-complete:
-	@echo "[sss][${JJBA23_DATE}][INFO] Operation was completed successfully!"
+	@echo "[sss][${SSS_DATE}][INFO] Operation was completed successfully!"
 full-rebuild:
 	make system-reconfigure
 	make joe-reconfigure

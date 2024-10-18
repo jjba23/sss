@@ -30,9 +30,9 @@
 
 (load "./proc.scm")
 
-(define jjba23-fancy-bash-service
+(define sss-fancy-bash-service
   (simple-service
-   'jjba23-fancy-bash
+   'sss-fancy-bash
    home-bash-service-type
    (home-bash-extension
     (environment-variables
@@ -50,10 +50,10 @@
 (define (emacs-conf-file file)
   (format #f ".emacs.d/~a" file ))
 
-(define jjba23-picom-conf-location
+(define sss-picom-conf-location
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/picom.conf")
 
-(define jjba23-picom-conf
+(define sss-picom-conf
   '((backend . "\"xrender\"")
     (corner-radius . "12")
     (fading . "true")
@@ -63,10 +63,10 @@
     (shadow-radius . "12")
     (shadow-opacity . "0.75")))
 
-(define jjba23-kitty-conf-location
+(define sss-kitty-conf-location
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/kitty.conf")
 
-(define jjba23-kitty-conf
+(define sss-kitty-conf
   '((font_family . "Intel One Mono")
     (font_size . 12.0)
     (scrollback_lines . 10000000)
@@ -76,26 +76,26 @@
     ("map ctrl+y" . "paste_from_clipboard")
     ))
 
-(define jjba23-opengpg-conf
+(define sss-opengpg-conf
   (service home-gpg-agent-service-type
            (home-gpg-agent-configuration
             (pinentry-program
              (file-append pinentry-emacs "/bin/pinentry-emacs"))
             (ssh-support? #t))))
 
-(define jjba23-xmodmap-conf-location
+(define sss-xmodmap-conf-location
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/xmodmap")
 
-(define jjba23-xmodmap-conf
+(define sss-xmodmap-conf
   '(("remove Lock" . "Caps_Lock")
     ("keysym Caps_Lock" . "Control_L")
     ("add Control" . "Control_L")
     ))
 
-(define jjba23-gtk3-conf-location
+(define sss-gtk3-conf-location
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/gtk-3.0-settings.ini")
 
-(define jjba23-gtk3-conf
+(define sss-gtk3-conf
   '((gtk-icon-theme-name . "Yaru-sage-dark")
     (gtk-theme-name . "Yaru-sage-dark")
     (gtk-font-name . "Liberation Sans 12")
@@ -105,10 +105,10 @@
     (gtk-enable-input-feedback-sounds . "0")
     ))
 
-(define jjba23-audio-service
+(define sss-audio-service
   (service home-pipewire-service-type))
 
-(define jjba23-ssh-service
+(define sss-ssh-service
   (service home-openssh-service-type
            (home-openssh-configuration
             (hosts
@@ -124,39 +124,39 @@
 
 (display "generating picom configuration...\n")
 (mk-conf
- jjba23-picom-conf-location
+ sss-picom-conf-location
  (lambda ()
-   (write-picom-conf jjba23-picom-conf
-                     jjba23-picom-conf-location) ))
+   (write-picom-conf sss-picom-conf
+                     sss-picom-conf-location) ))
 
 (display "generating kitty configuration...\n")
 (mk-conf
- jjba23-kitty-conf-location
+ sss-kitty-conf-location
  (lambda ()
-   (write-kitty-conf jjba23-kitty-conf
-                     jjba23-kitty-conf-location) ))
+   (write-kitty-conf sss-kitty-conf
+                     sss-kitty-conf-location) ))
 
 (display "generating xmodmap configuration...\n")
 (mk-conf
- jjba23-xmodmap-conf-location
+ sss-xmodmap-conf-location
  (lambda ()
-   (write-xmodmap-conf jjba23-xmodmap-conf
-                       jjba23-xmodmap-conf-location) ))
+   (write-xmodmap-conf sss-xmodmap-conf
+                       sss-xmodmap-conf-location) ))
 
 (display "generating GTK 3 configuration...\n")
 (mk-conf
- jjba23-gtk3-conf-location
+ sss-gtk3-conf-location
  (lambda ()
-   (write-gtk3-conf jjba23-gtk3-conf
-                    jjba23-gtk3-conf-location) ))
+   (write-gtk3-conf sss-gtk3-conf
+                    sss-gtk3-conf-location) ))
 
-(define jjba23-home-files-service
+(define sss-home-files-service
   (service home-files-service-type
-	   `((".config/kitty/kitty.conf" ,(local-file  jjba23-kitty-conf-location))
+	   `((".config/kitty/kitty.conf" ,(local-file  sss-kitty-conf-location))
              (".stumpwm.d/init.lisp" ,(local-file "stumpwm/init.lisp"))
-             (".config/picom.conf" ,(local-file jjba23-picom-conf-location))
-             (".xmodmap" ,(local-file  jjba23-xmodmap-conf-location))
-             (".config/gtk-3.0/settings.ini" ,(local-file jjba23-gtk3-conf-location))
+             (".config/picom.conf" ,(local-file sss-picom-conf-location))
+             (".xmodmap" ,(local-file  sss-xmodmap-conf-location))
+             (".config/gtk-3.0/settings.ini" ,(local-file sss-gtk3-conf-location))
              (".config/guix/channels.scm" ,(local-file "channels.scm"))
              (".config/rofi/config.rasi" ,(local-file "rofi/config.rasi"))
              (".gitconfig" ,(local-file "git/gitconfig.ini"))
@@ -175,12 +175,12 @@
   (list pfetch))
  (services
   (list 
-   jjba23-home-files-service
-   jjba23-ssh-service
-   jjba23-fancy-bash-service
-   jjba23-opengpg-conf
+   sss-home-files-service
+   sss-ssh-service
+   sss-fancy-bash-service
+   sss-opengpg-conf
    (service home-dbus-service-type)
-   jjba23-audio-service
+   sss-audio-service
    )))
 
 

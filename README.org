@@ -41,7 +41,7 @@ It's possible you need to some manual installations, and temporary workarounds, 
 It is *REQUIRED* to include a ~per-host.scm~ in the root of this project, which is excluded from Git, and will determine certain settings for your own machine.
 
 #+begin_src  scheme
-  (define jjba23-filesystems
+  (define sss-filesystems
     (list (file-system
            (device "/dev/nvme0n1p3")
            (mount-point "/")

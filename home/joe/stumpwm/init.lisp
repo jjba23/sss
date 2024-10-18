@@ -3,15 +3,13 @@
 
 (in-package :stumpwm)
 
-(defvar +guix-system-path+ "/run/current-system/profile/share/"
-  "Define Guix System profile PATH.)")
+(defvar sss-guix-system-path "/run/current-system/profile/share/"
+  "Define Guix System profile PATH.")
 
-(defvar +guix-home-path+ "~/.guix-home/profile/share/"
-  "Define Guix Home profile PATH.")
+(defvar sss-stumpwm-module-dir (concat sss-guix-system-path "common-lisp/sbcl/")
+  "Define the directory where StumpWM should load modules from.")
 
-(defvar +swm-data-dir+ (concat (getenv "XDG_CACHE_HOME") "/stumpwm/"))
-
-(set-module-dir (concat +guix-system-path+ "common-lisp/sbcl/"))
+(set-module-dir )
 
 (load-module "swm-gaps")
 (load-module "cpu")
@@ -22,6 +20,15 @@
 (load-module "stumptray")
 ;; (load-module "trivial-cltl2")
 ;; (load-module "slynk")
+
+
+
+(defvar +guix-home-path+ "~/.guix-home/profile/share/"
+  "Define Guix Home profile PATH.")
+
+(defvar +swm-data-dir+ (concat (getenv "XDG_CACHE_HOME") "/stumpwm/")
+  "Define the directory where StumpWM should work with data.")
+
 
 (setf xft:*font-dirs*
       (list (concat +guix-system-path+ "fonts/")

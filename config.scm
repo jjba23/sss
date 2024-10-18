@@ -30,7 +30,7 @@
 (use-package-modules certs)
 
 
-(define jjba23-joe-user-account
+(define sss-joe-user-account
   (user-account
    (name "joe")
    (group "users")
@@ -55,15 +55,15 @@
  
  (file-systems
   (append
-   jjba23-filesystems
+   sss-filesystems
    %base-file-systems))
  
  (users
-  (cons jjba23-joe-user-account
+  (cons sss-joe-user-account
         %base-user-accounts))
  
  (packages
-  (append jjba23-system-packages
+  (append sss-system-packages
           %base-packages))
  
  (services
