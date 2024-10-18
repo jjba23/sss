@@ -31,9 +31,6 @@
 (define sss-audio-service
   (service home-pipewire-service-type))
 
-(define sss-home-files-service
-  (service home-files-service-type
-	   `((".xinitrc" ,(local-file "xinit/xinitrc")))))
 
 (display "configuring home environment...")
 (home-environment
@@ -41,7 +38,6 @@
   (list pfetch))
  (services
   (list 
-   sss-home-files-service
    (service home-dbus-service-type)
    sss-audio-service
    )))
