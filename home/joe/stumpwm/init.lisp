@@ -1,3 +1,30 @@
+;;; init.lisp - StumpWM Configurations
+
+;; Copyright (C) 2024 Josep Bigorra
+
+;; Version: 0.9.0
+;; Author: Josep Bigorra <jjbigorra@gmail.com>
+;; Maintainer: Josep Bigorra <jjbigorra@gmail.com>
+;; URL: https://github.com/jjba23/sss
+
+;; sss is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; sss is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with sss.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; TODO
+
+;;; Code:
 
 (asdf:load-system "stumpwm")
 
@@ -9,8 +36,8 @@
 (defvar sss-stumpwm-module-dir (concat sss-guix-system-path "common-lisp/sbcl/")
   "Define the directory where StumpWM should load modules from.")
 
-(set-module-dir )
-
+;; Load StumpWM modules
+(set-module-dir sss-stumpwm-module-dir)
 (load-module "swm-gaps")
 (load-module "cpu")
 (load-module "mem")
@@ -18,25 +45,12 @@
 (load-module "ttf-fonts")
 (load-module "clx-truetype")
 (load-module "stumptray")
-;; (load-module "trivial-cltl2")
-;; (load-module "slynk")
 
-
-
-(defvar +guix-home-path+ "~/.guix-home/profile/share/"
+(defvar sss-guix-home-path "~/.guix-home/profile/share/"
   "Define Guix Home profile PATH.")
 
-(defvar +swm-data-dir+ (concat (getenv "XDG_CACHE_HOME") "/stumpwm/")
+(defvar sss-stumpwm-data-dir (concat (getenv "XDG_CACHE_HOME") "/stumpwm/")
   "Define the directory where StumpWM should work with data.")
-
-
-(setf xft:*font-dirs*
-      (list (concat +guix-system-path+ "fonts/")
-            (concat +guix-home-path+ "fonts/"))
-      clx-truetype:+font-cache-filename+
-      (concat (getenv "HOME")
-              "/.local/share/fonts/"
-              "font-cache.sexp"))
 
 (defvar user-name "Joe")
 (defvar small-user-name "joe")
@@ -52,7 +66,9 @@
 (defvar rp-surface "#222222")
 (defvar rp-base "#111111" )
 
-(stumpwm:set-prefix-key (stumpwm:kbd "C-t"))
+;; Set prefix key, the leader key binding
+(setf *debug-level* 10)
+(set-prefix-key (kbd "C-t"))
 
 (defun show-ip-address ()
   (let ((ip (run-shell-command "ip addr | grep 'inet\s' | cut -d: -f2 | awk '{ print $2}' | xargs -n2 -d'\n'" t)))
@@ -70,13 +86,11 @@
   (let ((ip (run-shell-command "uname -r" t)))
     (substitute #\Space #\Newline ip)))
 
-;; (stumpwm:defcommand sly-start-server () ()
-;;   "Start a slynk server for sly."
-;;   (sb-thread:make-thread (lambda () (slynk:create-server :dont-close t))))
 
-;; (stumpwm:defcommand sly-stop-server () ()
-;;   "Stop current slynk server for sly."
-;;   (sb-thread:make-thread (lambda () (slynk:stop-server 4005))))
+(defun sss-define-keys (keys key-map command)
+  (mapcar (lambda(x) (define-key key-map (kbd x) command )) keys)
+  "Define"
+  )
 
 
 (setf *mouse-focus-policy*    :click
@@ -88,27 +102,22 @@
         ,rp-pine ;; 2 green
         ,rp-yellow  ;; 3 yellow
         ,rp-pine  ;; 4 blue
-        ,rp-love  ;; 5 magenta
+        ,rp-pine  ;; 5 magenta
         ,rp-foam   ;; 6 cyan
         ,rp-text)) ;; 7 white
-
-;;(load-module "battery-portable")
-;;(load-module "wifi")
-
 
 (setf *normal-border-width*       0
       *float-window-border*       0
       *float-window-title-height* 15
       *window-border-style*       :none)
 
-
-
-(setf *mode-line-timeout* 2)
-;;(setf *time-modeline-string* "%F %H:%M")
-(setf *window-format* "%n: %30t")
+;; (load-module "battery-portable")
+;; (load-module "wifi")
+;; (setf *window-format* "%n: %30t")
 
 (setf *startup-message* (format nil "Master ~a | Welcome to StumpWM!" user-name))
 
+;; Set visual preferences - color, border, etc.
 (setf *mode-line-border-color* rp-surface
       *mode-line-border-width* 0
       *mode-line-pad-x* 6
@@ -117,33 +126,43 @@
 (setf *mode-line-background-color* rp-base
       *mode-line-foreground-color* rp-text)
 
-
-
 (set-focus-color rp-pine)
 (set-unfocus-color rp-surface)
 (set-float-focus-color rp-foam)
 (set-float-unfocus-color rp-surface)
 
+;; Date and time formats for the modeline
 (setf *time-modeline-string* (format nil "  %k:%M:%S %z - ~a @ SSS/Guix - %A, %d %B %Y   " small-user-name))
+;;(setf *time-modeline-string* "%F %H:%M")
 
+;; Modeline configuration
+(setf *mode-line-timeout* 2)
 (setf *screen-mode-line-format*
       (list
        '(:eval (show-hostname))
        "%d "
        " %g "
-        "^>"        
+       "^>"        
 
        '(:eval (format nil "Vol: ~a" (show-current-volume)))
        "%M      "
        )
       )
 
+
+;; Font configurations
+(setf xft:*font-dirs*
+      (list (concat sss-guix-system-path "fonts/")
+            (concat sss-guix-home-path "fonts/"))
+      clx-truetype:+font-cache-filename+
+      (concat (getenv "HOME")
+              "/.local/share/fonts/"
+              "font-cache.sexp"))
 (xft:cache-fonts)
 (set-font `(
             ,(make-instance 'xft:font :family "Intel One Mono" :subfamily "Regular" :size 11 :antialias t)
             )
           )
-
 
 (setf *input-window-gravity*     :top
       *message-window-padding*   10
@@ -156,17 +175,21 @@
 
 
 ;; Group shortcuts
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-]") "gnext")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-[") "gprev")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "]") "gnext")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "[") "gprev")
+(sss-define-keys '("]" "C-]") *root-map* "gnext")
+(sss-define-keys '("[" "C-[") *root-map* "gprev")
+
 
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "1") "gselect 1")
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "2") "gselect 2")
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "3") "gselect 3")
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "4") "gselect 4")
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "5") "gselect 5")
-
+;
+; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-1") "gmove 1")
+;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-2") "gmove 2")
+;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-3") "gmove 3")
+;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-4") "gmove 4")
+;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-5") "gmove 5")
 
 ;; Media control
 (define-key *top-map*
@@ -230,85 +253,57 @@
     ("C-k"   . ("C-S-End" "C-x")))))
 
 
-(defvar *my-end-session-keymap*
+(defvar sss-end-session-keymap
   (let ((m (make-sparse-keymap)))
-    (define-key m (stumpwm:kbd "q") "end-session")
-    (define-key m (stumpwm:kbd "l") "logout")
-    (define-key m (stumpwm:kbd "s") "suspend-computer")
-    (define-key m (stumpwm:kbd "S") "shutdown-computer")
-    (define-key m (stumpwm:kbd "r") "loadrc")
-    (define-key m (stumpwm:kbd "R") "restart-hard")
-    (define-key m (stumpwm:kbd "C-r") "restart-computer")
+    (sss-define-keys '("s" "C-s" "s-s") m "exec loginctl suspend")
+    (sss-define-keys '("h" "C-h" "s-h") m  "exec sudo halt")
+    (sss-define-keys '("l" "C-l" "s-l") m  "loadrc")
+    (sss-define-keys '("w" "C-w" "s-w") m "restart-hard")
+    (sss-define-keys '("r" "C-r" "s-r") m "exec sudo reboot")
     m))
 
 
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "p") '*my-end-session-keymap*)
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "/") "exec rofi -combi-modi drun,window -show combi")
+(sss-define-keys '("p" "C-p") *root-map* 'sss-end-session-keymap)
+(sss-define-keys '("/" "C-/" "q" "C-q") *root-map* "exec rofi -combi-modi drun,window -show combi")
 
-(defvar *my-screenshot-keymap*
+
+(defvar sss-screenshot-keymap
   (let ((m (make-sparse-keymap)))
-    (define-key m (stumpwm:kbd "d") "exec flameshot gui -d 3000")
-    (define-key m (stumpwm:kbd "s") "exec flameshot full")
-    (define-key m (stumpwm:kbd "S") "exec flameshot gui")
+    (sss-define-keys '("d" "C-d" "s-d") m "exec flameshot gui -d 3000")
+    (sss-define-keys '("s" "C-s" "s-s" "f" "C-f" "s-f") m "exec flameshot full")
+    (sss-define-keys '("g" "C-g" "s-g") m "exec flameshot gui")
     m))
 
-
-(defvar *my-application-keymap*
+(defvar sss-application-keymap
   (let ((m (make-sparse-keymap)))
-
-    (define-key m (kbd "e") "exec emacsclient -c")
-    (define-key m (kbd "E") "exec emacs")
-    (define-key m (kbd "[") "exec kitty -e \"emacsclient -t\"")
-    (define-key m (kbd "w") "exec icecat")
-    (define-key m (kbd "b") "exec pcmanfm")
-    (define-key *root-map* (stumpwm:kbd "w") "exec icecat")
-    (define-key *root-map* (stumpwm:kbd "m") "exec icedove")
-    (define-key m (kbd "t") "exec kitty")
-    (define-key m (kbd "f") "exec thunar")
-    (define-key m (kbd "a") "exec pavucontrol") 
-    (define-key m (kbd ":") "exec feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
-    ;;(define-key m (kbd "b") "exec bluedevil-wizard")
-    (define-key m (kbd "/") "exec rofi -combi-modi drun,window -show combi")
-    ;; (define-key m (stumpwm:kbd "1") "exec 1password")
-    ;; (define-key m (stumpwm:kbd "C-1") "exec 1password")
+    (sss-define-keys '("e" "C-e" "s-e") m "exec emacsclient -c")
+    (sss-define-keys '("E" "C-E" "s-E") m "exec emacs")
+    (sss-define-keys '("RET" "C-RET" "s-RET" "t" "C-t" "s-t") m "exec kitty")    
+    (sss-define-keys '("w" "C-w" ) m "exec icecat")
+    (sss-define-keys '("f" "C-f" ) m "exec thunar")
+    (sss-define-keys '("m" "C-m" ) m "exec icedove")
+    (sss-define-keys '("a" "C-a" ) m "exec pavucontrol")     
+    (sss-define-keys '(":" "C-:" ) m "exec feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
+    (sss-define-keys '("/" "C-/" "q" "C-q" ) m "exec rofi -combi-modi drun,window -show combi")
     m))
 
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "r") '*my-application-keymap*)
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-r") '*my-application-keymap*)
+(sss-define-keys '("r" "C-r" "SPC" "C-SPC") *root-map* 'sss-application-keymap)
 
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "x") "iresize")
+(define-key stumpwm:*root-map* (stumpwm:kbd "x") "iresize")
 
-
-(defvar *my-screen-config-keymap*
+(defvar sss-screen-config-keymap
   (let ((m (make-sparse-keymap)))
-
-    (define-key m (stumpwm:kbd "t") "run-shell-command ~/Ontwikkeling/Persoonlijk/sss/resources/screen-layouts/vandebron-macbook-single-screen.sh")
+    (define-key m (stumpwm:kbd "v") "run-shell-command ~/Ontwikkeling/Persoonlijk/sss/resources/screen-layouts/vandebron-macbook-single-screen.sh")
     (define-key m (stumpwm:kbd "r") "refresh-heads")
     m))
 
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-=") '*my-screen-config-keymap*)
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "=") '*my-screen-config-keymap*)
 
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-.") '*my-screenshot-keymap*)
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd ".") '*my-screenshot-keymap*)
-
-
-;; (defvar *my-keyboard-keymap*
-;;   (let ((m (make-sparse-keymap)))
-;;     (define-key m (stumpwm:kbd "e") "exec setxkbmap -layout us -option ctrl:nocaps")
-;;     m))
-
-;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-z") '*my-keyboard-keymap*)
-;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "z") '*my-keyboard-keymap*)
-
-;;(load-module "end-session")
-;; Use loginctl instead of the default systemctl
-;;(setf end-session:*end-session-command* "loginctl")
+(sss-define-keys '("=" "C-=") *root-map* 'sss-screen-config-keymap)
+(sss-define-keys '("." "C-.") *root-map* 'sss-screenshot-keymap)
 
 (when *initializing*
   (progn
     (update-color-map (current-screen))
-    ;;(which-key-mode)
     (gnewbg " www")
     (gnewbg " console")
     (grename " emacs")
@@ -326,6 +321,17 @@
     (swm-gaps:toggle-gaps)              
     (mode-line)
     (stumptray::stumptray)
+    (which-key-mode)
     )
   )
 
+
+
+;; if debugging
+;; (load-module "slynk")
+;; (stumpwm:defcommand sly-start-server () ()
+;;   "Start a slynk server for sly."
+;;   (sb-thread:make-thread (lambda () (slynk:create-server :dont-close t))))
+;; (stumpwm:defcommand sly-stop-server () ()
+;;   "Stop current slynk server for sly."
+;;   (sb-thread:make-thread (lambda () (slynk:stop-server 4005))))
