@@ -56,15 +56,15 @@
 (defvar small-user-name "joe")
 (defvar user-email "jjbigorra@gmail.com")
 
-(defvar rp-rose "#ebbcba") 
-(defvar rp-iris "#c4a7e7" )
-(defvar rp-love "#eb6f92" )
-(defvar rp-yellow "#f6c177" )
-(defvar rp-foam "#9ccfd8" )
-(defvar rp-pine "#42859f")
-(defvar rp-text "#e0def4") 
-(defvar rp-surface "#222222")
-(defvar rp-base "#111111" )
+(defvar sss-rose "#d38faf") 
+(defvar sss-iris "#7fc500" )
+(defvar sss-love "#ef6560" )
+(defvar sss-yellow "#d4aa02" )
+(defvar sss-foam "#5dc0aa" )
+(defvar sss-pine "#3fb83f")
+(defvar sss-text "#cfdfd5") 
+(defvar sss-surface "#222522")
+(defvar sss-base "#111111" )
 
 ;; Set prefix key, the leader key binding
 (setf *debug-level* 10)
@@ -97,14 +97,14 @@
       *float-window-modifier* :SUPER)
 
 (setq *colors*
-      `(,rp-base   ;; 0 black
-        ,rp-love  ;; 1 red
-        ,rp-pine ;; 2 green
-        ,rp-yellow  ;; 3 yellow
-        ,rp-pine  ;; 4 blue
-        ,rp-pine  ;; 5 magenta
-        ,rp-foam   ;; 6 cyan
-        ,rp-text)) ;; 7 white
+      `(,sss-base   ;; 0 black
+        ,sss-love  ;; 1 red
+        ,sss-pine ;; 2 green
+        ,sss-yellow  ;; 3 yellow
+        ,sss-pine  ;; 4 blue
+        ,sss-pine  ;; 5 magenta
+        ,sss-foam   ;; 6 cyan
+        ,sss-text)) ;; 7 white
 
 (setf *normal-border-width*       0
       *float-window-border*       0
@@ -118,18 +118,18 @@
 (setf *startup-message* (format nil "Master ~a | Welcome to StumpWM!" user-name))
 
 ;; Set visual preferences - color, border, etc.
-(setf *mode-line-border-color* rp-surface
+(setf *mode-line-border-color* sss-surface
       *mode-line-border-width* 0
       *mode-line-pad-x* 6
       *mode-line-pad-y* 6)
 
-(setf *mode-line-background-color* rp-base
-      *mode-line-foreground-color* rp-text)
+(setf *mode-line-background-color* sss-base
+      *mode-line-foreground-color* sss-text)
 
-(set-focus-color rp-pine)
-(set-unfocus-color rp-surface)
-(set-float-focus-color rp-foam)
-(set-float-unfocus-color rp-surface)
+(set-focus-color sss-base)
+(set-unfocus-color sss-base)
+(set-float-focus-color sss-base)
+(set-float-unfocus-color sss-base)
 
 ;; Date and time formats for the modeline
 (setf *time-modeline-string* (format nil "  %k:%M:%S %z - ~a @ SSS/Guix - %A, %d %B %Y   " small-user-name))
