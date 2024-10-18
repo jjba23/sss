@@ -87,9 +87,8 @@
     (substitute #\Space #\Newline ip)))
 
 
-(defun sss-define-keys (keys key-map command)
+(defun sss-define-keys (keys key-map command)  
   (mapcar (lambda(x) (define-key key-map (kbd x) command )) keys)
-  "Define"
   )
 
 
@@ -113,7 +112,6 @@
 
 ;; (load-module "battery-portable")
 ;; (load-module "wifi")
-;; (setf *window-format* "%n: %30t")
 
 (setf *startup-message* (format nil "Master ~a | Welcome to StumpWM!" user-name))
 
@@ -132,8 +130,8 @@
 (set-float-unfocus-color sss-base)
 
 ;; Date and time formats for the modeline
+;; refer to the man pages for `date` for more information on the formats
 (setf *time-modeline-string* (format nil "  %k:%M:%S %z - ~a @ SSS/Guix - %A, %d %B %Y   " small-user-name))
-;;(setf *time-modeline-string* "%F %H:%M")
 
 ;; Modeline configuration
 (setf *mode-line-timeout* 2)
@@ -142,8 +140,7 @@
        '(:eval (show-hostname))
        "%d "
        " %g "
-       "^>"        
-
+       "^>"
        '(:eval (format nil "Vol: ~a" (show-current-volume)))
        "%M      "
        )
@@ -179,13 +176,14 @@
 (sss-define-keys '("[" "C-[") *root-map* "gprev")
 
 
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "1") "gselect 1")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "2") "gselect 2")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "3") "gselect 3")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "4") "gselect 4")
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "5") "gselect 5")
-;
-; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-1") "gmove 1")
+(sss-define-keys '("1") *root-map* "gselect 1")
+(sss-define-keys '("2") *root-map* "gselect 2")
+(sss-define-keys '("3") *root-map* "gselect 3")
+(sss-define-keys '("4") *root-map* "gselect 4")
+(sss-define-keys '("5") *root-map* "gselect 5")
+
+
+;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-1") "gmove 1")
 ;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-2") "gmove 2")
 ;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-3") "gmove 3")
 ;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-4") "gmove 4")
