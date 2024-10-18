@@ -36,7 +36,8 @@
    home-bash-service-type
    (home-bash-extension
     (environment-variables
-     '(("PS1" . "\\u@\\h \\w${GUIX_ENVIRONMENT:+ [env]} λ ")))
+     '())
+    (bashrc `(,(local-file "bash/config.bash")))
     (aliases
      '(("ll" . "ls -lAh --group-directories-first")
        ("l" . "ls -lAh --group-directories-first")
@@ -45,6 +46,7 @@
        ("sr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make sr")
        ("jr" . "cd ~/Ontwikkeling/Persoonlijk/sss && make jr")
        )))
+   
    ))
 
 (define (emacs-conf-file file)
