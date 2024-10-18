@@ -267,6 +267,7 @@ mind.")
    openbox
    xf86-video-fbdev
    xf86-input-libinput
+   sx
    ))
 
 (define sss-system-packages

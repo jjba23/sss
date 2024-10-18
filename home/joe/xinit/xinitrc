@@ -1,4 +1,0 @@
-
-# xrandr --auto
-
-exec /run/current-system/profile/bin/stumpwm

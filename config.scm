@@ -67,22 +67,21 @@
   (user-account
    (name "joe")
    (group "users")
-   (supplementary-groups '("wheel" "audio" "video" "docker"))))
+   (supplementary-groups '("wheel" "audio" "video" "docker" "input"))))
 
 (define sss-manon-user-account
   (user-account
    (name "manon")
    (group "users")
-   (supplementary-groups '("audio" "video" "docker"))))
+   (supplementary-groups '("audio" "video" "docker" "input"))))
 
 (define* (sss-desktop-services-for-system #:optional
                                           (system (or (%current-target-system)
                                                       (%current-system))))
   ;; List of services typically useful for a "desktop" use case.
   (cons*
-   ;; i am a "no display manager" kinda person
-   ;; otherwise add (service sddm-service-type)
-   ;; or (service gdm-service-type) for x86_64
+   ;; display manager
+   (service sddm-service-type)
 
    ;; Screen lockers are a pretty useful thing and these are small.
    (service screen-locker-service-type
