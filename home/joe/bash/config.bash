@@ -39,7 +39,7 @@ clr='\[\033[00m\]'      # Reset
 
 
 # set size and add date and time to `history` command
-export HISTTIMEFORMAT="%F %T "
+export HISTTIMEFORMAT="%F %T  | "
 export HISTSIZE=200000
 export HISTFILESIZE=200000
 
