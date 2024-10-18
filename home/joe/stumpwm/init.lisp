@@ -301,6 +301,8 @@
 (sss-define-keys '("=" "C-=") *root-map* 'sss-screen-config-keymap)
 (sss-define-keys '("." "C-.") *root-map* 'sss-screenshot-keymap)
 
+(sss-define-keys '("i" "C-i") *root-map* "which-key-mode")
+
 (when *initializing*
   (progn
     (update-color-map (current-screen))
@@ -321,7 +323,6 @@
     (swm-gaps:toggle-gaps)              
     (mode-line)
     (stumptray::stumptray)
-    (which-key-mode)
     )
   )
 

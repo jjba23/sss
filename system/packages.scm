@@ -198,6 +198,8 @@ mind.")
    (specification->package "make")
    nix
    coreutils
+   xinit
+   xorg-server
    ))
 
 (define sss-music-packages
@@ -261,6 +263,8 @@ mind.")
    orage
    sqlitebrowser
    direnv
+   xf86-video-fbdev
+   xf86-input-libinput
    ))
 
 (define sss-system-packages

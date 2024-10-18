@@ -157,6 +157,7 @@
              (".gitmessage-personal" ,(local-file "git/gitmessage-personal"))
              (".gitmessage-work" ,(local-file "git/gitmessage-work"))
              (".config/nix/nix.conf" ,(local-file "nix/nix.conf"))
+             (".xinitrc" ,(local-file "xinit/xinitrc"))
              (,(emacs-conf-file "init.el") ,(local-file "emacs/init.el"))
 	     (,(emacs-conf-file "early-init.el") ,(local-file "emacs/early-init.el")))))
 

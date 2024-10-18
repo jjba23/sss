@@ -21,7 +21,40 @@
 (use-modules (nongnu packages linux)
              (nongnu system linux-initrd))
 
+(use-modules (gnu system privilege))
 (use-modules (gnu services xorg))
+(use-modules (gnu services sddm))
+(use-modules (gnu services))
+(use-modules (gnu services shepherd))
+(use-modules (gnu services base))
+(use-modules (gnu services configuration))
+(use-modules (gnu services dbus))
+(use-modules (gnu services avahi))
+(use-modules (gnu packages suckless))
+(use-modules (gnu packages glib))
+(use-modules (gnu packages admin))
+(use-modules (gnu packages cups))
+(use-modules (gnu packages freedesktop))
+(use-modules (gnu packages gnome))
+(use-modules (gnu packages kde))
+(use-modules (gnu packages kde-frameworks))
+(use-modules (gnu packages kde-plasma))
+(use-modules (gnu packages pulseaudio))
+(use-modules (gnu packages xfce))
+(use-modules (gnu packages avahi))
+(use-modules (gnu packages xdisorg))
+(use-modules (gnu packages scanner))
+(use-modules (gnu packages suckless))
+(use-modules (gnu packages sugar))
+(use-modules (gnu packages linux))
+(use-modules (gnu packages libusb))
+(use-modules (gnu packages lxqt))
+(use-modules (gnu packages mate))
+(use-modules (gnu packages nfs))
+(use-modules (gnu packages enlightenment))
+(use-modules (gnu services xorg))
+(use-modules (gnu services networking))
+(use-modules (gnu services sound))
 
 (load "./per-host.scm")
 (load "./system/packages.scm")
@@ -35,6 +68,85 @@
    (name "joe")
    (group "users")
    (supplementary-groups '("wheel" "audio" "video" "docker"))))
+
+(define* (sss-desktop-services-for-system #:optional
+                                          (system (or (%current-target-system)
+                                                      (%current-system))))
+  ;; List of services typically useful for a "desktop" use case.
+  (cons*
+   ;; i am a "no display manager" kinda person
+   ;; otherwise add (service sddm-service-type)
+   ;; or (service gdm-service-type) for x86_64
+
+   ;; Screen lockers are a pretty useful thing and these are small.
+   (service screen-locker-service-type
+            (screen-locker-configuration
+             (name "slock")
+             (program (file-append slock "/bin/slock"))))
+   (service screen-locker-service-type
+            (screen-locker-configuration
+             (name "xlock")
+             (program (file-append xlockmore "/bin/xlock"))))
+
+   ;; Add udev rules for MTP devices so that non-root users can access
+   ;; them.
+   (simple-service 'mtp udev-service-type (list libmtp))
+   ;; Add udev rules for scanners.
+   (service sane-service-type)
+   ;; Add polkit rules, so that non-root users in the wheel group can
+   ;; perform administrative tasks (similar to "sudo").
+   polkit-wheel-service
+
+   ;; Allow desktop users to also mount NTFS and NFS file systems
+   ;; without root.
+   (simple-service 'mount-setuid-helpers privileged-program-service-type
+                   (map file-like->setuid-program
+                        (list (file-append nfs-utils "/sbin/mount.nfs")
+                              (file-append ntfs-3g "/sbin/mount.ntfs-3g"))))
+
+   ;; This is a volatile read-write file system mounted at /var/lib/gdm,
+   ;; to avoid GDM stale cache and permission issues.
+   ;; gdm-file-system-service
+
+   ;; The global fontconfig cache directory can sometimes contain
+   ;; stale entries, possibly referencing fonts that have been GC'd,
+   ;; so mount it read-only.
+   fontconfig-file-system-service
+
+   ;; NetworkManager and its applet.
+   (service network-manager-service-type)
+   (service wpa-supplicant-service-type)    ;needed by NetworkManager
+   (simple-service 'network-manager-applet
+                   profile-service-type
+                   (list network-manager-applet))
+   (service modem-manager-service-type)
+   (service usb-modeswitch-service-type)
+
+   ;; The D-Bus clique.
+   (service avahi-service-type)
+   (service udisks-service-type)
+   (service upower-service-type)
+   (service accountsservice-service-type)
+   (service cups-pk-helper-service-type)
+   (service colord-service-type)
+   (service geoclue-service-type)
+   (service polkit-service-type)
+   (service elogind-service-type)
+   (service dbus-root-service-type)
+
+   (service ntp-service-type)
+
+   (service x11-socket-directory-service-type)
+
+   (service pulseaudio-service-type)
+   (service alsa-service-type)
+
+   %base-services))
+
+(define-syntax sss-desktop-services
+  (identifier-syntax (sss-desktop-services-for-system)))
+
+
 
 (operating-system
  (host-name "guixvm")
@@ -71,11 +183,7 @@
          (service nix-service-type)
          (service containerd-service-type)
          (service docker-service-type)
-         ;;(service slim-service-type)
-         %desktop-services
-         ;; (modify-services
-         ;;  %desktop-services
-         ;;  (delete gdm-service-type))
+         sss-desktop-services
          )))
 
 
