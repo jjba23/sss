@@ -69,6 +69,12 @@
    (group "users")
    (supplementary-groups '("wheel" "audio" "video" "docker"))))
 
+(define sss-manon-user-account
+  (user-account
+   (name "manon")
+   (group "users")
+   (supplementary-groups '("audio" "video" "docker"))))
+
 (define* (sss-desktop-services-for-system #:optional
                                           (system (or (%current-target-system)
                                                       (%current-system))))
@@ -171,20 +177,21 @@
    %base-file-systems))
  
  (users
-  (cons sss-joe-user-account
-        %base-user-accounts))
+  (cons* sss-joe-user-account
+         sss-manon-user-account
+         %base-user-accounts))
  
  (packages
   (append sss-system-packages
           %base-packages))
  
  (services
-  (cons* (service xfce-desktop-service-type)
-         (service nix-service-type)
-         (service containerd-service-type)
-         (service docker-service-type)
-         sss-desktop-services
-         )))
+  (cons* 
+   (service nix-service-type)
+   (service containerd-service-type)
+   (service docker-service-type)
+   sss-desktop-services
+   )))
 
 
 

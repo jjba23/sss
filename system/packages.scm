@@ -33,6 +33,7 @@
              (gnu packages lisp-xyz)
              (gnu packages fontutils)
              (gnu packages lisp)
+             (gnu packages openbox)
              (gnu packages image-viewers)
              (gnu packages gnome-xyz)
              (gnu packages compton)
@@ -263,6 +264,7 @@ mind.")
    orage
    sqlitebrowser
    direnv
+   openbox
    xf86-video-fbdev
    xf86-input-libinput
    ))
