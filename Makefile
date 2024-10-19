@@ -40,21 +40,21 @@ update:
 system-reconfigure:
 	$(call sss-log-info,"begin working on system-reconfigure target")
 	@sudo guix system reconfigure config.scm
-	$(call sss-echo-complete,"system-reconfigure")
+	$(call sss-log-complete,"system-reconfigure")
 joe-reconfigure:
 	$(call sss-log-info,"begin working on joe-reconfigure target")
 	@guix home reconfigure home/joe/home.scm
-	$(call sss-echo-complete,"joe-reconfigure")
+	$(call sss-log-complete,"joe-reconfigure")
 manon-reconfigure:
 	$(call sss-log-info,"begin working on manon-reconfigure target")
 	@guix home reconfigure home/manon/home.scm
-	$(call sss-echo-complete,"manon-reconfigure")
+	$(call sss-log-complete,"manon-reconfigure")
 full-rebuild:
 	@make system-reconfigure
 	@make joe-reconfigure
 	@sudo fc-cache -r
 	@fc-cache -r
-	$(call sss-echo-complete,"full-rebuild")
+	$(call sss-log-complete,"full-rebuild")
 
 # Aliases section
 jr:
