@@ -33,6 +33,7 @@
 (use-modules (gnu packages suckless))
 (use-modules (gnu packages glib))
 (use-modules (gnu packages admin))
+(use-modules (gnu services nix))
 (use-modules (gnu packages cups))
 (use-modules (gnu packages freedesktop))
 (use-modules (gnu packages gnome))
@@ -56,8 +57,14 @@
 (use-modules (gnu services networking))
 (use-modules (gnu services sound))
 
+(use-modules (guix packages)
+             
+             )
+
 (load "./per-host.scm")
 (load "./system/packages.scm")
+
+(use-modules (sss-packages))
 
 (use-service-modules networking desktop docker)
 (use-package-modules certs)
@@ -75,9 +82,10 @@
    (group "users")
    (supplementary-groups '("audio" "video" "docker" "input"))))
 
-(define* (sss-desktop-services-for-system #:optional
-                                          (system (or (%current-target-system)
-                                                      (%current-system))))
+(define* (sss-desktop-services-for-system
+          #:optional
+          (system (or (%current-target-system)
+                      (%current-system))))
   ;; List of services typically useful for a "desktop" use case.
   (cons*
    ;; display manager

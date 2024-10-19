@@ -15,70 +15,68 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with sss.  If not, see <https://www.gnu.org/licenses/>.
 
+(define-module (sss-packages)
+  #:use-module (gnu)
+  #:use-module (gnu packages admin)
+  #:use-module (gnu packages screen)	     
+  #:use-module (gnu packages emacs)
+  #:use-module (gnu packages databases)
+  #:use-module (gnu packages shellutils)
+  #:use-module (gnu packages xorg)
+  #:use-module (gnu packages tree-sitter)
+  #:use-module (gnu packages file-systems)
+  #:use-module (gnu packages display-managers)
+  #:use-module (gnu packages music)
+  #:use-module (gnu packages audio)
+  #:use-module (gnu packages web-browsers) 
+  #:use-module (gnu packages docker)
+  #:use-module (gnu packages lisp-xyz)
+  #:use-module (gnu packages fontutils)
+  #:use-module (gnu packages lisp)
+  #:use-module (gnu packages openbox)
+  #:use-module (gnu packages image-viewers)
+  #:use-module (gnu packages gnome-xyz)
+  #:use-module (gnu packages compton)
+  #:use-module (gnu packages ssh)
+  #:use-module (gnu packages version-control)
+  #:use-module (gnu packages fonts)
+  #:use-module (gnu packages pulseaudio)
+  #:use-module (gnu services nix)
+  #:use-module (gnu packages libreoffice)
+  #:use-module (gnu packages wm)
+  #:use-module (gnu packages ncurses)
+  #:use-module (gnu packages xfce)
+  #:use-module (gnu packages multiprecision)
+  #:use-module (gnu packages gcc)
+  #:use-module (gnu packages aspell)
+  #:use-module (gnu packages rust-apps)
+  #:use-module (gnu packages inkscape)
+  #:use-module (gnu packages gimp)
+  #:use-module (gnu packages python-web)
+  #:use-module (gnu packages xdisorg)
+  #:use-module (gnu packages imagemagick)
+  #:use-module (gnu packages curl)
+  #:use-module (gnu packages terminals)
+  #:use-module (gnu packages video)
+  #:use-module (gnu packages image)    
+  #:use-module (gnu packages compression)
+  #:use-module (gnu packages sqlite)
+  #:use-module (gnu packages disk)
+  #:use-module (gnu packages glib)
+  #:use-module (gnu packages networking)
+  #:use-module (gnu packages gnuzilla)
+  #:use-module (guix git-download)
+  #:use-module (guix build-system font)
+  #:use-module (guix build-system copy)
+  #:use-module (guix licenses)
+  #:use-module (guix packages)
+  #:use-module (gnu packages linux)
+  #:use-module (gnu packages web)
+  #:use-module (gnu packages package-management)
+  #:use-module (gnu packages base)
+  )
 
-(use-modules (gnu)
-	     (gnu packages admin)
-	     (gnu packages screen)	     
-	     (gnu packages emacs)
-             (gnu packages databases)
-             (gnu packages shellutils)
-             (gnu packages xorg)
-             (gnu packages tree-sitter)
-             (gnu packages file-systems)
-             (gnu packages display-managers)
-             (gnu packages music)
-             (gnu packages audio)
-             (gnu packages web-browsers) 
-             (gnu packages docker)
-             (gnu packages lisp-xyz)
-             (gnu packages fontutils)
-             (gnu packages lisp)
-             (gnu packages openbox)
-             (gnu packages image-viewers)
-             (gnu packages gnome-xyz)
-             (gnu packages compton)
-	     (gnu packages ssh)
-	     (gnu packages version-control)
-	     (gnu packages fonts)
-             (gnu packages pulseaudio)
-             (gnu services nix)
-	     (gnu packages libreoffice)
-             (gnu packages wm)
-             (gnu packages ncurses)
-             (gnu packages xfce)
-             (gnu packages multiprecision)
-             (gnu packages gcc)
-             (gnu packages aspell)
-	     (gnu packages rust-apps)
-             (gnu packages inkscape)
-	     (gnu packages gimp)
-             (gnu packages python-web)
-             (gnu packages xdisorg)
-             (gnu packages imagemagick)
-             (gnu packages curl)
-             (gnu packages terminals)
-             (gnu packages video)
-             (gnu packages image)    
-	     (gnu packages compression)
-             (gnu packages sqlite)
-             (gnu packages disk)
-             (gnu packages glib)
-             (gnu packages networking)
-	     (gnu packages gnuzilla))
-
-(use-modules (guix git-download)
-             (guix build-system font)
-             (guix build-system copy))
-(use-modules ((guix licenses) #:prefix license:))
-
-(use-modules (guix packages)
-             (gnu packages linux)
-             (gnu packages web)
-             (gnu packages package-management)
-             (gnu packages base))
-
-(define sss-theme-packages
-  (list yaru-theme))
+(define sss-theme-packages (list yaru-theme))
 
 (define font-sss-intel-one-mono
   (package
@@ -103,7 +101,7 @@
     "This package provides Intel One Mono, an expressive monospaced font
 family that's built with clarity, legibility, and the needs of developers in
 mind.")
-   (license license:silofl1.1)))
+   (license silofl1.1)))
 
 
 (define sss-font-packages
@@ -231,6 +229,7 @@ mind.")
    httpie
 
    inkscape
+   dunst
    fzf
    vlc
 
@@ -270,7 +269,7 @@ mind.")
    sx
    ))
 
-(define sss-system-packages
+(define-public sss-system-packages
   (append
    sss-other-system-packages
    sss-wm-packages

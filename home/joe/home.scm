@@ -146,6 +146,7 @@
 
 (display "\n>>= reproducing nix configurations\n")
 (syscall "nix profile install --impure nixpkgs#vivaldi")
+(syscall "nix profile install --impure nixpkgs#prismlauncher")
 
 (define sss-home-files-service
   (service home-files-service-type
