@@ -113,33 +113,39 @@
                                  (identity-file "~/.ssh/work_id"))))
             (authorized-keys '()))))
 
-(display "generating picom configuration...\n")
+(display "\n>>= generating picom configuration...\n")
 (mk-conf
  sss-picom-conf-location
  (lambda ()
    (write-picom-conf sss-picom-conf
                      sss-picom-conf-location) ))
 
-(display "generating kitty configuration...\n")
+(display "\n>>= generating kitty configuration...\n")
 (mk-conf
  sss-kitty-conf-location
  (lambda ()
    (write-kitty-conf sss-kitty-conf
                      sss-kitty-conf-location) ))
 
-(display "generating xmodmap configuration...\n")
+(display "\n>>= generating xmodmap configuration...\n")
 (mk-conf
  sss-xmodmap-conf-location
  (lambda ()
    (write-xmodmap-conf sss-xmodmap-conf
                        sss-xmodmap-conf-location) ))
 
-(display "generating GTK 3 configuration...\n")
+(display "\n>>= generating GTK 3 configuration...\n")
 (mk-conf
  sss-gtk3-conf-location
  (lambda ()
    (write-gtk3-conf sss-gtk3-conf
                     sss-gtk3-conf-location) ))
+
+(display "\n>>= setting up nix env...\n")
+(syscall "ln -sfv /nix/var/nix/profiles/per-user/joe/profile /home/joe/.nix-profile")
+
+(display "\n>>= reproducing nix configurations\n")
+(syscall "nix profile install --impure nixpkgs#vivaldi")
 
 (define sss-home-files-service
   (service home-files-service-type
@@ -161,7 +167,7 @@
              (,(emacs-conf-file "init.el") ,(local-file "emacs/init.el"))
 	     (,(emacs-conf-file "early-init.el") ,(local-file "emacs/early-init.el")))))
 
-(display "configuring home environment...")
+(display "\n>>= configuring home environment...\n")
 (home-environment
  (packages
   (list pfetch))

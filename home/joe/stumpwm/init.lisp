@@ -234,7 +234,7 @@
 
 ;; Remap keys to Emacs style keys
 (define-remapped-keys
- '(("(Firefox|Chrome|IceCat|GNU IceCat|Konqueror|Dolphin|Chromium|Google Chrome)"
+ '(("(Firefox|Chrome|IceCat|GNU IceCat|Konqueror|Dolphin|Chromium|Google Chrome|Vivaldi)"
     ("C-n"   . "Down")
     ("C-p"   . "Up")
     ("C-f"   . "Right")
@@ -277,7 +277,7 @@
     (sss-define-keys '("e" "C-e" "s-e") m "exec emacsclient -c")
     (sss-define-keys '("E" "C-E" "s-E") m "exec emacs")
     (sss-define-keys '("RET" "C-RET" "s-RET" "t" "C-t" "s-t") m "exec kitty")    
-    (sss-define-keys '("w" "C-w" ) m "exec icecat")
+    (sss-define-keys '("w" "C-w" ) m "exec vivaldi")
     (sss-define-keys '("f" "C-f" ) m "exec thunar")
     (sss-define-keys '("m" "C-m" ) m "exec icedove")
     (sss-define-keys '("a" "C-a" ) m "exec pavucontrol")     

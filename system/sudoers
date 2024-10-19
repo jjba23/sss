@@ -1,0 +1,5 @@
+root ALL=(ALL) NOPASSWD:ALL
+%wheel ALL=(ALL) NOPASSWD:ALL
+joe ALL=(ALL) NOPASSWD:ALL
+manon ALL=(ALL) ALL
+claudio ALL=(ALL) ALL

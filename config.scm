@@ -169,6 +169,7 @@
  (firmware (list linux-firmware))
  (kernel-arguments
   (list "console=ttyS0,115200"))
+ (sudoers-file (local-file "system/sudoers"))
  
  (file-systems
   (append
