@@ -11,20 +11,23 @@ gnu emacs + stumpwm + gnu guix
 
 Find the divine sayings, and the destined configurations, all my Guix, Scheme, StumpWM, Common Lisp and Emacs Lisp configurations here for learning you a fully Lisp machine with GNU/Linux for a great good.
 
+
+*** What lies here?
+
+configurations you may find in the repo include:
+- kitty terminal emulator configuration from Guile Scheme (in GNU Home)
+- StumpWM configuration in Common Lisp with GNU Guix modules for SBCL
+- Emacs configuration with Emacs Lisp + Elpaca
+- Rofi configuration
+
 Note: Screenshot below might be outdated and no longer representative of the current, everchanging state of these "dotfiles".
 #+begin_html
 <img src="./resources/screenshots/17-10-2024.png"/>
 #+end_html
 
 
+*** Introduction
 These are my configuration files, which also explain a lot about the tooling I use and enjoy, and can teach you a thing or two.
-
-Notable software configurations you may find in the repo:
-
-- kitty terminal emulator configuration from Guile Scheme (in GNU Home)
-- StumpWM configuration in Common Lisp with GNU Guix modules for SBCL
-- Emacs configuration with Emacs Lisp + Elpaca
-- Rofi configuration
 
 If you like my work, please support me by [[https://bmc.link/jjbigorra][buying me a cup of coffee ☕]] so I can continue with a lot of motivation.
 
@@ -41,6 +44,22 @@ In some ways this is a laboratory of experimentation for my computing environmen
 This is all to say that you understand the risks associated with tracking an ever-changing project that does not enjoy widespread testing and whose target audience is only me. If you are fine with that and are willing to assume responsibility for any possible breakage, then please feel welcome to follow along. You can always open an issue here or contribute any fixes, if you will.
 
 
+*** Per host - per-host.scm
+
+It is *REQUIRED* to include a ~per-host.scm~ in the root of this project, which is excluded from Git, and will determine certain settings for your own machine.
+Find here a reference configuration with what is required.
+
+#+begin_src  scheme
+  (define sss-filesystems
+    (list (file-system
+           (device "/dev/nvme0n1p3")
+           (mount-point "/")
+           (type "ext4"))
+          (file-system
+           (device "/dev/nvme0n1p1")
+           (mount-point "/boot/efi")
+           (type "vfat"))))
+#+end_src
 *** Words of Advice
 
 Learning Lisps is really going down a rabbit hole, but trust me, you will come out with a better understanding of programming as a whole out the other end.
@@ -67,18 +86,3 @@ It's possible you need to some manual installations, and temporary workarounds, 
 #+end_src
 
 
-*** Per host - per-host.scm
-
-It is *REQUIRED* to include a ~per-host.scm~ in the root of this project, which is excluded from Git, and will determine certain settings for your own machine.
-
-#+begin_src  scheme
-  (define sss-filesystems
-    (list (file-system
-           (device "/dev/nvme0n1p3")
-           (mount-point "/")
-           (type "ext4"))
-          (file-system
-           (device "/dev/nvme0n1p1")
-           (mount-point "/boot/efi")
-           (type "vfat"))))
-#+end_src
