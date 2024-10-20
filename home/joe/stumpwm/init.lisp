@@ -86,23 +86,25 @@
   (let ((ip (run-shell-command "uname -r" t)))
     (substitute #\Space #\Newline ip)))
 
+(defun sss-run-autostarts ()
+  (progn
+    ;(display "\n>>=  applying wallpaper...\n")
+    (run-shell-command "feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
+    ;(display "\n>>=  starting Emacs daemon...\n")
+    (run-shell-command "emacs --daemon")
+    ;(display "\n>>=  starting Picom compositor...\n")
+    (run-shell-command "picom -b")
+    ;(display "\n>>=  applying xmodmap keyboard configurations...\n")
+    (run-shell-command "xmodmap ~/.xmodmap")
+    ;(display "\n>>=  cursor tweaks...\n")
+    (run-shell-command "xsetroot -cursor_name left_ptr")
+    ;(display "\n>>=  start LXSession...\n")
+    (run-shell-command "lxsession --de=StumpWM &")
+    ))
+
 
 (defun sss-define-keys (keys key-map command)
   (mapcar (lambda(x) (define-key key-map (kbd x) command )) keys))
-
-(defun sss-run-autostarts ()
-  (display "\n>>=  applying wallpaper...\n")
-  (run-shell-command "feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
-  (display "\n>>=  starting Emacs daemon...\n")
-  (run-shell-command "emacs --daemon")
-  (display "\n>>=  starting Picom compositor...\n")
-  (run-shell-command "picom -b")
-  (display "\n>>=  applying xmodmap keyboard configurations...\n")
-  (run-shell-command "xmodmap ~/.xmodmap")
-  (display "\n>>=  cursor tweaks...\n")
-  (run-shell-command "xsetroot -cursor_name left_ptr")
-  (display "\n>>=  start LXSession...\n")
-  (run-shell-command "lxsession --de=StumpWM &"))
 
 
 (setf *mouse-focus-policy*    :click
