@@ -14,11 +14,13 @@ Find the divine sayings, and the destined configurations, all my Guix, Scheme, S
 
 *** What lies here?
 
-configurations you may find in the repo include:
-- kitty terminal emulator configuration from Guile Scheme (in GNU Home)
-- StumpWM configuration in Common Lisp with GNU Guix modules for SBCL
-- Emacs configuration with Emacs Lisp + Elpaca
-- Rofi configuration
+Knowledge you may find in the repo includes:
+- Emacs configurations with Emacs Lisp + Elpaca
+- GNU Guix system configurations with Guile Scheme
+- StumpWM configurations in Common Lisp with GNU Guix modules for SBCL
+- kitty terminal emulator configurations from Guile Scheme (in GNU Home)
+- picom configurations from Guile Scheme (in GNU Home)
+- rofi configurations
 
 Note: Screenshot below might be outdated and no longer representative of the current, everchanging state of these "dotfiles".
 #+begin_html
