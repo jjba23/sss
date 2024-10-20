@@ -274,6 +274,7 @@ mind.")
    xf86-video-fbdev
    xf86-input-libinput
    lxsession
+   pamixer
    lxappearance
    i3lock-fancy
    ))
