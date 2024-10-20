@@ -144,17 +144,17 @@
 
 (defun sss-run-autostarts ()
   (progn
-                                        ;(display "\n>>=  applying wallpaper...\n")
+    ;; (display "\n>>=  applying wallpaper...\n")
     (run-shell-command "feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
-                                        ;(display "\n>>=  starting Emacs daemon...\n")
+    ;;(display "\n>>=  starting Emacs daemon...\n")
     (run-shell-command "emacs --daemon")
-                                        ;(display "\n>>=  starting Picom compositor...\n")
+    ;;(display "\n>>=  starting Picom compositor...\n")
     (run-shell-command "picom -b")
-                                        ;(display "\n>>=  applying xmodmap keyboard configurations...\n")
+    ;;(display "\n>>=  applying xmodmap keyboard configurations...\n")
     (run-shell-command "xmodmap ~/.xmodmap")
-                                        ;(display "\n>>=  cursor tweaks...\n")
+    ;;(display "\n>>=  cursor tweaks...\n")
     (run-shell-command "xsetroot -cursor_name left_ptr")
-                                        ;(display "\n>>=  start LXSession...\n")
+    ;;(display "\n>>=  start LXSession...\n")
     (run-shell-command "lxsession --de=StumpWM &")
     ))
 
