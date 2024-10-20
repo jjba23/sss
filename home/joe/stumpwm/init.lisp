@@ -198,53 +198,53 @@
 (sss-define-keys '("5") *root-map* "gselect 5")
 
 
-;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-1") "gmove 1")
-;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-2") "gmove 2")
-;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-3") "gmove 3")
-;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-4") "gmove 4")
-;; (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-5") "gmove 5")
+;; (define-key *root-map* (kbd "C-1") "gmove 1")
+;; (define-key *root-map* (kbd "C-2") "gmove 2")
+;; (define-key *root-map* (kbd "C-3") "gmove 3")
+;; (define-key *root-map* (kbd "C-4") "gmove 4")
+;; (define-key *root-map* (kbd "C-5") "gmove 5")
 
 ;; Media control
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioPlay") "exec playerctl play-pause")
+            (kbd "XF86AudioPlay") "exec playerctl play-pause")
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioPause") "exec playerctl pause")
+            (kbd "XF86AudioPause") "exec playerctl pause")
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioStop")
+            (kbd "XF86AudioStop")
             "exec playerctl stop")
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioPrev")
+            (kbd "XF86AudioPrev")
             "exec playerctl previous")
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioNext")
+            (kbd "XF86AudioNext")
             "exec playerctl next")
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioRewind")
+            (kbd "XF86AudioRewind")
             "exec playerctl position -1")
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioForward")
+            (kbd "XF86AudioForward")
             "exec playerctl position +1")
 (define-key *top-map*
-            (stumpwm:kbd "XF86MonBrightnessDown")
+            (kbd "XF86MonBrightnessDown")
             "exec xbacklight -perceived -dec 2")
 (define-key *top-map*
-            (stumpwm:kbd "XF86MonBrightnessUp")
+            (kbd "XF86MonBrightnessUp")
             "exec xbacklight -perceived -inc 2")
 (define-key *top-map*
-            (stumpwm:kbd "Print")
+            (kbd "Print")
             "exec spectacle -r")
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioRaiseVolume")
+            (kbd "XF86AudioRaiseVolume")
             "exec pamixer -i 5")
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioLowerVolume")
+            (kbd "XF86AudioLowerVolume")
             "exec pamixer -d 5")
 (define-key *top-map*
-            (stumpwm:kbd "XF86AudioMute")
+            (kbd "XF86AudioMute")
             "exec pamixer -m")
 
 ;; Lock screen
-(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "l") "exec xsecurelock")
+(define-key *root-map* (kbd "l") "exec xsecurelock")
 
 
 ;; Remap keys to Emacs style keys
@@ -302,12 +302,12 @@
 
 (sss-define-keys '("r" "C-r" "SPC" "C-SPC") *root-map* 'sss-application-keymap)
 
-(define-key stumpwm:*root-map* (stumpwm:kbd "x") "iresize")
+(define-key *root-map* (kbd "x") "iresize")
 
 (defvar sss-screen-config-keymap
   (let ((m (make-sparse-keymap)))
-    (define-key m (stumpwm:kbd "v") "run-shell-command ~/Ontwikkeling/Persoonlijk/sss/resources/screen-layouts/vandebron-macbook-single-screen.sh")
-    (define-key m (stumpwm:kbd "r") "refresh-heads")
+    (define-key m (kbd "v") "run-shell-command ~/Ontwikkeling/Persoonlijk/sss/resources/screen-layouts/vandebron-macbook-single-screen.sh")
+    (define-key m (kbd "r") "refresh-heads")
     m))
 
 
@@ -340,9 +340,9 @@
 
 ;; if debugging
 ;; (load-module "slynk")
-;; (stumpwm:defcommand sly-start-server () ()
+;; (defcommand sly-start-server () ()
 ;;   "Start a slynk server for sly."
 ;;   (sb-thread:make-thread (lambda () (slynk:create-server :dont-close t))))
-;; (stumpwm:defcommand sly-stop-server () ()
+;; (defcommand sly-stop-server () ()
 ;;   "Stop current slynk server for sly."
 ;;   (sb-thread:make-thread (lambda () (slynk:stop-server 4005))))
