@@ -5,7 +5,9 @@
 #+options: num:nil
 
 
-A Lisp machine adventure, where GNU and Lisp are celebrated, GNU is love, Emacs and StumpWM are life. 
+A Lisp machine adventure, where GNU and Lisp are celebrated, GNU is love, Emacs and StumpWM are life.
+
+gnu emacs + stumpwm + gnu guix 
 
 Find the divine sayings, and the destined configurations, all my Guix, Scheme, StumpWM, Common Lisp and Emacs Lisp configurations here for learning you a fully Lisp machine with GNU/Linux for a great good.
 
@@ -14,7 +16,15 @@ Note: Screenshot below might be outdated and no longer representative of the cur
 <img src="./resources/screenshots/17-10-2024.png"/>
 #+end_html
 
+
 These are my configuration files, which also explain a lot about the tooling I use and enjoy, and can teach you a thing or two.
+
+Notable software configurations you may find in the repo:
+
+- kitty terminal emulator configuration from Guile Scheme (in GNU Home)
+- StumpWM configuration in Common Lisp with GNU Guix modules for SBCL
+- Emacs configuration with Emacs Lisp + Elpaca
+- Rofi configuration
 
 If you like my work, please support me by [[https://bmc.link/jjbigorra][buying me a cup of coffee ☕]] so I can continue with a lot of motivation.
 
