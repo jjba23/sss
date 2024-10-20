@@ -121,6 +121,8 @@ mind.")
    sbcl-alexandria
    sbcl-asdf-system-connections
    sbcl-bordeaux-threads
+   cl-asdf
+   sbcl-local-time
    sbcl-cl-environments
    sbcl-cl-fad
    sbcl-cl-store

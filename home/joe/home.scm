@@ -99,6 +99,14 @@
 (define sss-audio-service
   (service home-pipewire-service-type))
 
+(define sss-home-vars-service
+  (simple-service 'some-useful-env-vars-service
+                  home-environment-variables-service-type
+                  `(("SBCL_HOME" . "$HOME/.guix-home/profile/lib/sbcl")
+                    ("GUIX_LOCPATH" . "$home/.guix-profile/lib/locale")                  
+                    ("LANG" . "nl_NL.UTF-8")
+                    ("LANGUAGE" . "nl_NL"))))
+
 (define sss-ssh-service
   (service home-openssh-service-type
            (home-openssh-configuration
@@ -171,11 +179,12 @@
 (display "\n>>= configuring home environment...\n")
 (home-environment
  (packages
-  (list pfetch))
+  (list pfetch)) 
  (services
   (list 
    sss-home-files-service
    sss-ssh-service
+   sss-home-vars-service
    sss-fancy-bash-service
    sss-opengpg-conf
    (service home-dbus-service-type)

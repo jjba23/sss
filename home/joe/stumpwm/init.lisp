@@ -45,6 +45,7 @@
 (load-module "ttf-fonts")
 (load-module "clx-truetype")
 (load-module "stumptray")
+;; (load-module "slynk")
 
 (defvar sss-guix-home-path "~/.guix-home/profile/share/"
   "Define Guix Home profile PATH.")
