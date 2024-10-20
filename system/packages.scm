@@ -156,7 +156,7 @@ mind.")
    picom
    
    stumpish
-   stumpwm
+   (specification->package "stumpwm-with-slynk")
    ))
 
 
