@@ -46,13 +46,13 @@
 
 (define sss-picom-conf
   '((backend . "\"xrender\"")
-    (corner-radius . "12")
+    (corner-radius . "14")
     (fading . "true")
     (fade-in-step . "0.24")
     (fade-out-step . "0.24")
     (shadow . "true")
-    (shadow-radius . "12")
-    (shadow-opacity . "0.75")))
+    (shadow-radius . "8")
+    (shadow-opacity . "0.65")))
 
 (define sss-kitty-conf-location
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/kitty.conf")
