@@ -56,6 +56,10 @@
 (defvar small-user-name "joe")
 (defvar user-email "jjbigorra@gmail.com")
 
+(defun sss-define-keys (keys key-map command)
+  (mapcar (lambda(x) (define-key key-map (kbd x) command )) keys))
+
+
 ;; Keymaps
 (defvar sss-wm-keymap
   (let ((m (make-sparse-keymap)))
@@ -140,23 +144,21 @@
 
 (defun sss-run-autostarts ()
   (progn
-    ;(display "\n>>=  applying wallpaper...\n")
+                                        ;(display "\n>>=  applying wallpaper...\n")
     (run-shell-command "feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
-    ;(display "\n>>=  starting Emacs daemon...\n")
+                                        ;(display "\n>>=  starting Emacs daemon...\n")
     (run-shell-command "emacs --daemon")
-    ;(display "\n>>=  starting Picom compositor...\n")
+                                        ;(display "\n>>=  starting Picom compositor...\n")
     (run-shell-command "picom -b")
-    ;(display "\n>>=  applying xmodmap keyboard configurations...\n")
+                                        ;(display "\n>>=  applying xmodmap keyboard configurations...\n")
     (run-shell-command "xmodmap ~/.xmodmap")
-    ;(display "\n>>=  cursor tweaks...\n")
+                                        ;(display "\n>>=  cursor tweaks...\n")
     (run-shell-command "xsetroot -cursor_name left_ptr")
-    ;(display "\n>>=  start LXSession...\n")
+                                        ;(display "\n>>=  start LXSession...\n")
     (run-shell-command "lxsession --de=StumpWM &")
     ))
 
 
-(defun sss-define-keys (keys key-map command)
-  (mapcar (lambda(x) (define-key key-map (kbd x) command )) keys))
 
 
 (setf *mouse-focus-policy*    :click
@@ -321,7 +323,7 @@
 
 
 
-(sss-define-keys '("'" "C-'") *root-map* 'sss-wm-keymap)
+(sss-define-keys '("w" "C-w") *root-map* 'sss-wm-keymap)
 (sss-define-keys '("p" "C-p") *root-map* 'sss-end-session-keymap)
 (sss-define-keys '("#" "C-#") *root-map* 'sss-reconfigure-keymap)
 (sss-define-keys '("/" "C-/") *root-map* "exec rofi -combi-modi drun,window -show combi")
