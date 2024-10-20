@@ -23,6 +23,7 @@
   #:use-module (gnu packages lxde)
   #:use-module (gnu packages databases)
   #:use-module (gnu packages shellutils)
+  #:use-module (gnu packages kodi)
   #:use-module (gnu packages xorg)
   #:use-module (gnu packages tree-sitter)
   #:use-module (gnu packages file-systems)
@@ -269,6 +270,8 @@ mind.")
    xf86-input-libinput
    lxsession
    lxappearance
+   i3lock-fancy
+   kodi
    ))
 
 (define-public sss-system-packages

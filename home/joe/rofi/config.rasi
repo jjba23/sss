@@ -10,7 +10,6 @@ configuration {
  
  font: "Intel One Mono 16";
  show-icons: true;
- icon-size: 24;
  icon-theme: "Yaru-sage-dark";
 }
 

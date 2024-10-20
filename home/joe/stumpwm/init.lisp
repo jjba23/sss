@@ -56,6 +56,58 @@
 (defvar small-user-name "joe")
 (defvar user-email "jjbigorra@gmail.com")
 
+;; Keymaps
+(defvar sss-wm-keymap
+  (let ((m (make-sparse-keymap)))
+    (sss-define-keys '(":" "C-:" ) m "exec feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
+    (sss-define-keys '("l" "C-l") m "loadrc")
+    (sss-define-keys '("r" "C-r") m "restart-hard")
+    (sss-define-keys '("q" "C-q") m "quit")
+    (sss-define-keys '("i" "C-i") m "which-key-mode")
+    (sss-define-keys '("z" "C-z") m "iresize")
+    m))
+
+(defvar sss-end-session-keymap
+  (let ((m (make-sparse-keymap)))
+    (sss-define-keys '("s" "C-s" "s-s") m "exec loginctl suspend")
+    (sss-define-keys '("h" "C-h" "s-h") m  "exec sudo halt")
+    (sss-define-keys '("r" "C-r" "s-r") m "exec sudo reboot")
+    m))
+
+(defvar sss-reconfigure-keymap
+  (let ((m (make-sparse-keymap)))    
+    (sss-define-keys '("f" "C-f") m "exec cd ~/Ontwikkeling/Persoonlijk/sss && make fr")
+    (sss-define-keys '("j" "C-j") m "exec cd ~/Ontwikkeling/Persoonlijk/sss && make jr")
+    (sss-define-keys '("m" "C-m") m "exec cd ~/Ontwikkeling/Persoonlijk/sss && make mr")
+    m))
+
+
+(defvar sss-screenshot-keymap
+  (let ((m (make-sparse-keymap)))
+    (sss-define-keys '("d" "C-d" ) m "exec flameshot gui -d 3000")
+    (sss-define-keys '("s" "C-s" "f" "C-f") m "exec flameshot full")
+    (sss-define-keys '("g" "C-g" ) m "exec flameshot gui")
+    m))
+
+(defvar sss-application-keymap
+  (let ((m (make-sparse-keymap)))
+    (sss-define-keys '("e" "C-e" ) m "exec emacsclient -c")
+    (sss-define-keys '("E" "C-E" ) m "exec emacs")
+    (sss-define-keys '("RET" "C-RET" "t" "C-t") m "exec kitty")    
+    (sss-define-keys '("w" "C-w" ) m "exec /home/joe/.nix-profile/bin/vivaldi")
+    (sss-define-keys '("f" "C-f" ) m "exec thunar")
+    (sss-define-keys '("m" "C-m" ) m "exec icedove")
+    (sss-define-keys '("a" "C-a" ) m "exec pavucontrol")     
+    (sss-define-keys '("/" "C-/" "q" "C-q" ) m "exec rofi -combi-modi drun,window -show combi")
+    m))
+
+(defvar sss-screen-config-keymap
+  (let ((m (make-sparse-keymap)))
+    (define-key m (kbd "v") "run-shell-command ~/Ontwikkeling/Persoonlijk/sss/resources/screen-layouts/vandebron-macbook-single-screen.sh")
+    (define-key m (kbd "r") "refresh-heads")
+    m))
+
+;; Colors 
 (defvar sss-rose "#d38faf") 
 (defvar sss-iris "#7fc500" )
 (defvar sss-love "#ef6560" )
@@ -246,7 +298,7 @@
             "exec pamixer -m")
 
 ;; Lock screen
-(define-key *root-map* (kbd "l") "exec xsecurelock")
+(define-key *root-map* (kbd "l") "exec i3lock-fancy")
 
 
 ;; Remap keys to Emacs style keys
@@ -268,55 +320,14 @@
     ("C-k"   . ("C-S-End" "C-x")))))
 
 
-(defvar sss-end-session-keymap
-  (let ((m (make-sparse-keymap)))
-    (sss-define-keys '("s" "C-s" "s-s") m "exec loginctl suspend")
-    (sss-define-keys '("h" "C-h" "s-h") m  "exec sudo halt")
-    (sss-define-keys '("l" "C-l" "s-l") m  "loadrc")
-    (sss-define-keys '("w" "C-w" "s-w") m "restart-hard")
-    (sss-define-keys '("r" "C-r" "s-r") m "exec sudo reboot")
-    m))
 
-
+(sss-define-keys '("'" "C-'") *root-map* 'sss-wm-keymap)
 (sss-define-keys '("p" "C-p") *root-map* 'sss-end-session-keymap)
-(sss-define-keys '("/" "C-/" "q" "C-q") *root-map* "exec rofi -combi-modi drun,window -show combi")
-
-
-(defvar sss-screenshot-keymap
-  (let ((m (make-sparse-keymap)))
-    (sss-define-keys '("d" "C-d" "s-d") m "exec flameshot gui -d 3000")
-    (sss-define-keys '("s" "C-s" "s-s" "f" "C-f" "s-f") m "exec flameshot full")
-    (sss-define-keys '("g" "C-g" "s-g") m "exec flameshot gui")
-    m))
-
-(defvar sss-application-keymap
-  (let ((m (make-sparse-keymap)))
-    (sss-define-keys '("e" "C-e" "s-e") m "exec emacsclient -c")
-    (sss-define-keys '("E" "C-E" "s-E") m "exec emacs")
-    (sss-define-keys '("RET" "C-RET" "s-RET" "t" "C-t" "s-t") m "exec kitty")    
-    (sss-define-keys '("w" "C-w" ) m "exec /home/joe/.nix-profile/bin/vivaldi")
-    (sss-define-keys '("f" "C-f" ) m "exec thunar")
-    (sss-define-keys '("m" "C-m" ) m "exec icedove")
-    (sss-define-keys '("a" "C-a" ) m "exec pavucontrol")     
-    (sss-define-keys '(":" "C-:" ) m "exec feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
-    (sss-define-keys '("/" "C-/" "q" "C-q" ) m "exec rofi -combi-modi drun,window -show combi")
-    m))
-
+(sss-define-keys '("#" "C-#") *root-map* 'sss-reconfigure-keymap)
+(sss-define-keys '("/" "C-/") *root-map* "exec rofi -combi-modi drun,window -show combi")
 (sss-define-keys '("r" "C-r" "SPC" "C-SPC") *root-map* 'sss-application-keymap)
-
-(define-key *root-map* (kbd "x") "iresize")
-
-(defvar sss-screen-config-keymap
-  (let ((m (make-sparse-keymap)))
-    (define-key m (kbd "v") "run-shell-command ~/Ontwikkeling/Persoonlijk/sss/resources/screen-layouts/vandebron-macbook-single-screen.sh")
-    (define-key m (kbd "r") "refresh-heads")
-    m))
-
-
 (sss-define-keys '("=" "C-=") *root-map* 'sss-screen-config-keymap)
 (sss-define-keys '("." "C-.") *root-map* 'sss-screenshot-keymap)
-
-(sss-define-keys '("i" "C-i") *root-map* "which-key-mode")
 
 (when *initializing*
   (progn
@@ -329,7 +340,6 @@
     (gnewbg " audio")
     (clear-window-placement-rules)
 
-    
     (sss-run-autostarts)
     
     (swm-gaps:toggle-gaps)              
@@ -337,7 +347,6 @@
     (stumptray::stumptray)
     )
   )
-
 
 
 ;; if debugging
