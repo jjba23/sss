@@ -5,8 +5,6 @@
 #+options: num:nil
 
 
-* Supreme Sexp System - SSS
-
 A Lisp machine adventure, where GNU and Lisp are celebrated, GNU is love, Emacs and StumpWM are life. 
 
 Find the divine sayings, and the destined configurations, all my Guix, Scheme, StumpWM, Common Lisp and Emacs Lisp configurations here for learning you a fully Lisp machine with GNU/Linux for a great good.
@@ -20,7 +18,7 @@ These are my configuration files, which also explain a lot about the tooling I u
 
 If you like my work, please support me by [[https://bmc.link/jjbigorra][buying me a cup of coffee ☕]] so I can continue with a lot of motivation.
 
-This is the set of files that powers my day-to-day computing experience, so do not track my dotfiles (rolling, unstable, and untested), but feel free to use them and take inspiration from them or fork.
+This is the set of files that powers my day-to-day computing experience, so do not track my dotfiles (rolling, unstable, and untested), but feel free to use them and take inspiration from them or fork and work under the terms of the GNU GPL v3 or newer.
 
 #+begin_html
 <div>
@@ -33,17 +31,13 @@ In some ways this is a laboratory of experimentation for my computing environmen
 This is all to say that you understand the risks associated with tracking an ever-changing project that does not enjoy widespread testing and whose target audience is only me. If you are fine with that and are willing to assume responsibility for any possible breakage, then please feel welcome to follow along. You can always open an issue here or contribute any fixes, if you will.
 
 
-* Words of Advice
+*** Words of Advice
 
 Learning Lisps is really going down a rabbit hole, but trust me, you will come out with a better understanding of programming as a whole out the other end.
 
-This configuration is heavily biased towards containing a ~joe~ user who also acts as administrator for most of the time.
+This configuration is heavily biased towards containing a ~joe~ user who also acts as administrator for most of the time. Your mileage may vary (YMMV).
 
-Your mileage may vary (YMMV).
-
-Feel free to fork this, under the terms of the GNU GPL v3 or newer.
-
-As your user ~joe~ run commands from the Makefile, like ~make fr~ or make ~sr~.
+Some commands in the ~Makefile~ are more geared towards ~joe~ since we assume a device is most frequently only tended to by one system administration most of the time. Some examples are ~make fr~ or ~make jr~.
 
 The system and home folders of users are managed independently of each other, in quite a loosely coupled manner.
 
@@ -61,6 +55,9 @@ It's possible you need to some manual installations, and temporary workarounds, 
        %default-channels)
 
 #+end_src
+
+
+*** Per host - per-host.scm
 
 It is *REQUIRED* to include a ~per-host.scm~ in the root of this project, which is excluded from Git, and will determine certain settings for your own machine.
 
