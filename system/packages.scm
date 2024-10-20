@@ -21,9 +21,9 @@
   #:use-module (gnu packages screen)	     
   #:use-module (gnu packages emacs)
   #:use-module (gnu packages lxde)
+  #:use-module (gnu packages gnome)
   #:use-module (gnu packages databases)
   #:use-module (gnu packages shellutils)
-  #:use-module (gnu packages kodi)
   #:use-module (gnu packages xorg)
   #:use-module (gnu packages tree-sitter)
   #:use-module (gnu packages file-systems)
@@ -198,6 +198,9 @@ mind.")
    gcc
    curl
    ripgrep
+   net-tools
+   dstat
+   dconf-editor
    (specification->package "make")
    nix
    coreutils
@@ -273,7 +276,6 @@ mind.")
    lxsession
    lxappearance
    i3lock-fancy
-   kodi
    ))
 
 (define-public sss-system-packages

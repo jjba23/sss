@@ -45,6 +45,17 @@
 (load-module "ttf-fonts")
 (load-module "clx-truetype")
 (load-module "stumptray")
+(load-module "slynk")
+
+;; Debugging
+(defcommand sly-start-server () ()
+  "Start a slynk server for sly."
+  (sb-thread:make-thread (lambda () (slynk:create-server :dont-close t))))
+
+(defcommand sly-stop-server () ()
+  "Stop current slynk server for sly."
+  (sb-thread:make-thread (lambda () (slynk:stop-server 4005))))
+
 ;; (load-module "slynk")
 
 (defvar sss-guix-home-path "~/.guix-home/profile/share/"
@@ -70,7 +81,10 @@
     (sss-define-keys '("q" "C-q") m "quit")
     (sss-define-keys '("i" "C-i") m "which-key-mode")
     (sss-define-keys '("z" "C-z") m "iresize")
+    (sss-define-keys '("{" "C-{") m "sly-start-server")
+    (sss-define-keys '("}" "C-}") m "sly-stop-server")
     m))
+
 
 (defvar sss-end-session-keymap
   (let ((m (make-sparse-keymap)))
@@ -352,11 +366,3 @@
   )
 
 
-;; if debugging
-;; (load-module "slynk")
-;; (defcommand sly-start-server () ()
-;;   "Start a slynk server for sly."
-;;   (sb-thread:make-thread (lambda () (slynk:create-server :dont-close t))))
-;; (defcommand sly-stop-server () ()
-;;   "Stop current slynk server for sly."
-;;   (sb-thread:make-thread (lambda () (slynk:stop-server 4005))))
