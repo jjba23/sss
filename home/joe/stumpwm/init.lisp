@@ -110,6 +110,8 @@
 (setf *mouse-focus-policy*    :click
       *float-window-modifier* :SUPER)
 
+(setf *mode-line-position* :bottom)
+
 (setq *colors*
       `(,sss-base   ;; 0 black
         ,sss-love  ;; 1 red
