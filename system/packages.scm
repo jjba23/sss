@@ -20,6 +20,7 @@
   #:use-module (gnu packages admin)
   #:use-module (gnu packages screen)	     
   #:use-module (gnu packages emacs)
+  #:use-module (gnu packages lxde)
   #:use-module (gnu packages databases)
   #:use-module (gnu packages shellutils)
   #:use-module (gnu packages xorg)
@@ -266,7 +267,8 @@ mind.")
    openbox
    xf86-video-fbdev
    xf86-input-libinput
-   sx
+   lxsession
+   lxappearance
    ))
 
 (define-public sss-system-packages
