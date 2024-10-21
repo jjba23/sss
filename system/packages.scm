@@ -79,7 +79,11 @@
   #:use-module (gnu packages base)
   )
 
-(define sss-theme-packages (list yaru-theme))
+(define sss-theme-packages
+  (list
+   yaru-theme
+   delft-icon-theme
+   ))
 
 (define font-sss-intel-one-mono
   (package

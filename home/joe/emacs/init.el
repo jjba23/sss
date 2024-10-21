@@ -86,6 +86,10 @@
   "My personal choice for sans font family." 
   :type 'string)
 
+(defcustom jjba-ews-music-directory "~/Muziek"
+  "My personal main directory where to read music from."
+  :type 'string)
+
 
 ;; Declare jjba packages
 
@@ -692,6 +696,25 @@ According to size, color and font family"
          (org-mode . (lambda () (flymake-mode)(flymake-proselint-setup))))
   )
 
+
+;; Emacs Multimedia System
+(use-package emms
+  :ensure t
+  :init
+  (require 'emms-setup)
+  (require 'emms-mpris)
+  (emms-all)
+  (emms-default-players)
+  (emms-mpris-enable)
+  :custom
+  (emms-source-file-default-directory jjba-ews-music-directory)
+  (emms-browser-covers #'emms-browser-cache-thumbnail-async)
+  :bind
+  (("<f5>"   . emms-browser)
+   ("M-<f5>" . emms)
+   ("<XF86AudioPrev>" . emms-previous)
+   ("<XF86AudioNext>" . emms-next)
+   ("<XF86AudioPlay>" . emms-pause)))
 
 
 ;; Configure Emacs native features

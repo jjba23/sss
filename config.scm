@@ -92,7 +92,7 @@
    (service sddm-service-type
             (sddm-configuration
              (display-server "x11")
-             (theme "elarun")
+             (theme "maya")
              (hide-users "root")
              (auto-login-session "stumpwm.desktop")))
 
