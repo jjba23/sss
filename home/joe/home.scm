@@ -50,9 +50,9 @@
     (fading . "true")
     (fade-in-step . "0.24")
     (fade-out-step . "0.24")
-    (shadow . "true")
-    (shadow-radius . "8")
-    (shadow-opacity . "0.65")))
+    (shadow . "false")))
+;;(shadow-radius . "8")
+;;(shadow-opacity . "0.65")
 
 (define sss-kitty-conf-location
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/kitty.conf")

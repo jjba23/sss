@@ -126,7 +126,7 @@
     ;;(display "\n>>=  start LXSession...\n")
     (run-shell-command "lxsession --de=StumpWM &")
     ;;(display "\n>>=  start Conky...\n")
-    ;;(run-shell-command "conky &")
+    ;;(run-shell-command "conky -d")
     ))
 
 (setf *mouse-focus-policy*    :click

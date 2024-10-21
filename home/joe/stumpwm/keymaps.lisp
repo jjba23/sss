@@ -45,6 +45,8 @@
     (sss-define-keys '("z" "C-z") m "iresize")
     (sss-define-keys '("{" "C-{") m "sly-start-server")
     (sss-define-keys '("}" "C-}") m "sly-stop-server")
+    (sss-define-keys '("c" "C-c") m "exec conky -d")
+    (sss-define-keys '("z" "C-z") m "exec pkill conky")
     m))
 
 

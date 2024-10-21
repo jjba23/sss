@@ -9,8 +9,8 @@
 --   print("Loading Conky config")
 
 conky.config = {
-    alignment = 'top_left',
-    background = false,
+    alignment = 'top_right',
+    background = true,
     border_width = 1,
     cpu_avg_samples = 2,
     default_color = 'white',
@@ -32,22 +32,26 @@ conky.config = {
     out_to_console = false,
     out_to_ncurses = false,
     out_to_stderr = false,
-    out_to_wayland = false,
+    -- out_to_wayland = false,
     out_to_x = true,
     own_window = true,
     own_window_class = 'Conky',
     own_window_type = 'desktop',
+    own_window_transparent = true,
     show_graph_range = false,
     show_graph_scale = false,
     stippled_borders = 0,
-    update_interval = 1.0,
+    update_interval = 5.0,
     uppercase = false,
     use_spacer = 'none',
     use_xft = true,
 }
 
 conky.text = [[
-${color grey}Info:$color ${scroll 32 Conky $conky_version - $sysname $nodename $kernel $machine}
+joe @ SSS/Guix
+$hr
+Press C-t ? for help, C-t r ? for seeing app shortcuts
+${color grey}Info:$color Conky $conky_version - $sysname $nodename $kernel $machine
 $hr
 ${color grey}Uptime:$color $uptime
 ${color grey}Frequency (in MHz):$color $freq
