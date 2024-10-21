@@ -89,7 +89,12 @@
   ;; List of services typically useful for a "desktop" use case.
   (cons*
    ;; display manager
-   (service sddm-service-type)
+   (service sddm-service-type
+            (sddm-configuration
+             (display-server "x11")
+             (theme "elarun")
+             (hide-users "root")
+             (auto-login-session "stumpwm.desktop")))
 
    ;; Screen lockers are a pretty useful thing and these are small.
    (service screen-locker-service-type
