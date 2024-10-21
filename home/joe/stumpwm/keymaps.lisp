@@ -103,7 +103,7 @@
 
 ;; Bind keymaps to root map
 (sss-define-keys '("w" "C-w") *root-map* 'sss-wm-keymap)
-(sss-define-keys '("p" "C-p") *root-map* 'sss-end-session-keymap)
+(sss-define-keys '("p" "C-p") *root-map* 'sss-power-keymap)
 (sss-define-keys '("#" "C-#") *root-map* 'sss-reconfigure-keymap)
 (sss-define-keys '("/" "C-/") *root-map* "exec rofi -combi-modi drun,window -show combi")
 (sss-define-keys '("r" "C-r" "SPC" "C-SPC") *root-map* 'sss-application-keymap)
