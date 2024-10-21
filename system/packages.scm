@@ -245,6 +245,7 @@ mind.")
    vlc
 
    sqlite
+   postgresql
    (specification->package "ungoogled-chromium")
    obs
    libreoffice
