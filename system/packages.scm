@@ -203,7 +203,6 @@ mind.")
    tar zip unzip
    gmp
    gcc
-   lua
    curl
    ripgrep
    net-tools
@@ -287,6 +286,8 @@ mind.")
    lxappearance
    (specification->package "conky")
    i3lock-fancy
+   mpv
+   mpv-mpris
    ))
 
 (define-public sss-system-packages
