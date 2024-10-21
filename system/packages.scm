@@ -23,6 +23,7 @@
   #:use-module (gnu packages lxde)
   #:use-module (gnu packages gnome)
   #:use-module (gnu packages databases)
+  #:use-module (gnu packages bittorrent)
   #:use-module (gnu packages shellutils)
   #:use-module (gnu packages xorg)
   #:use-module (gnu packages lua)
@@ -288,6 +289,7 @@ mind.")
    i3lock-fancy
    mpv
    mpv-mpris
+   transmission
    ))
 
 (define-public sss-system-packages
