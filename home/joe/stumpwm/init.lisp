@@ -110,6 +110,7 @@
     (gnewbg " priv")
     (gnewbg " audio")))
 
+;; TODO implement run-shell-command-once 
 (defun sss-run-autostarts ()
   (progn
     ;; (display "\n>>=  applying wallpaper...\n")
