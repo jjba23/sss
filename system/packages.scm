@@ -25,6 +25,7 @@
   #:use-module (gnu packages databases)
   #:use-module (gnu packages shellutils)
   #:use-module (gnu packages xorg)
+  #:use-module (gnu packages lua)
   #:use-module (gnu packages tree-sitter)
   #:use-module (gnu packages file-systems)
   #:use-module (gnu packages display-managers)
@@ -166,6 +167,7 @@ mind.")
    tree-sitter
    tree-sitter-bash
    tree-sitter-dockerfile
+   tree-sitter-lua
    tree-sitter-haskell
    tree-sitter-css
    tree-sitter-html
@@ -197,6 +199,7 @@ mind.")
    tar zip unzip
    gmp
    gcc
+   lua
    curl
    ripgrep
    net-tools

@@ -266,6 +266,8 @@ According to size, color and font family"
 
 (use-package scala-ts-mode :ensure t :mode "\\.scala\\'")
 
+(use-package lua-mode :ensure t :mode "\\.lua\\'")
+
 (use-package typescript-mode :ensure t :mode "\\.ts\\'")
 
 (use-package nix-ts-mode 

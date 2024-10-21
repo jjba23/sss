@@ -175,6 +175,7 @@
              (".gitmessage-work" ,(local-file "git/gitmessage-work"))
              (".config/nix/nix.conf" ,(local-file "nix/nix.conf"))
              (".config/nixpkgs/config.nix" ,(local-file "nix/nixpkgs.nix"))
+             (".config/conky/conky.conf" ,(local-file "conky/conkyrc.lua"))
              (,(emacs-conf-file "init.el") ,(local-file "emacs/init.el"))
 	     (,(emacs-conf-file "early-init.el") ,(local-file "emacs/early-init.el")))))
 
