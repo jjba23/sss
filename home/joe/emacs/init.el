@@ -699,7 +699,7 @@ According to size, color and font family"
   :bind (("C-x C-b" . ibuffer) 
          ("C-c a h" . highlight-compare-buffers) 
          ("C-c b e" . jjba-bookmark-emacs-config)
-         ("C-c b x" . jjba-bookmark-xfce-config)
+         ("C-c b w" . jjba-bookmark-stumpwm-config)
          ("C-c l d" . toggle-debug-on-error)
          ("C-c l e" . eval-buffer)
          ("C-c s b" . flyspell-buffer)

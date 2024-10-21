@@ -276,6 +276,7 @@ mind.")
    lxsession
    pamixer
    lxappearance
+   (specification->package "conky")
    i3lock-fancy
    ))
 
