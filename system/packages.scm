@@ -110,6 +110,7 @@ mind.")
   (list
    fontconfig
    font-google-roboto
+   font-google-noto-emoji
    font-jetbrains-mono
    font-sss-intel-one-mono
    font-intel-one-mono
