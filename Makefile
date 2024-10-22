@@ -68,4 +68,4 @@ fr:
 gc:
 	@sudo guix system delete-generations 3d
 store-gc:
-	@sudo guix gc --verify=contents,repair
+	@sudo guix gc
