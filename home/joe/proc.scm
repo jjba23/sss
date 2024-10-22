@@ -86,4 +86,5 @@
         ))
     (close file-port)))
 
-
+(define (nix-profile-install x)
+  (syscall (format #f "nix -L profile install --impure nixpkgs#~a" x)))

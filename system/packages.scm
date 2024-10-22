@@ -290,6 +290,7 @@ mind.")
    mpv
    mpv-mpris
    transmission
+   fyi
    ))
 
 (define-public sss-system-packages

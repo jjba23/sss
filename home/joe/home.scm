@@ -83,6 +83,7 @@
     ("add Control" . "Control_L")
     ))
 
+
 (define sss-gtk3-conf-location
   "/home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/generated/gtk-3.0-settings.ini")
 
@@ -106,6 +107,8 @@
                     ("GUIX_LOCPATH" . "$home/.guix-profile/lib/locale")                  
                     ("LANG" . "nl_NL.UTF-8")
                     ("LANGUAGE" . "nl_NL"))))
+
+
 
 (define sss-ssh-service
   (service home-openssh-service-type
@@ -149,12 +152,23 @@
    (write-gtk3-conf sss-gtk3-conf
                     sss-gtk3-conf-location) ))
 
+
 (display "\n>>= setting up nix env...\n")
 (syscall "ln -sfv /nix/var/nix/profiles/per-user/joe/profile /home/joe/.nix-profile")
 
-(display "\n>>= reproducing nix configurations\n")
-(syscall "nix profile install --impure nixpkgs#vivaldi")
-(syscall "nix profile install --impure nixpkgs#prismlauncher")
+(display "\n>>= installing nix packages\n")
+(for-each
+ (lambda(x) (nix-profile-install x))
+ '("vivaldi"
+   "prismlauncher"
+   "yaml-language-server"
+   "jdt-language-server"
+   "nil"
+   "black"
+   "pyright"
+   "marksman"
+   ))
+
 
 (define sss-home-files-service
   (service home-files-service-type
@@ -173,6 +187,7 @@
              (".gitignore-global" ,(local-file "git/gitignore-global"))
              (".gitmessage-personal" ,(local-file "git/gitmessage-personal"))
              (".gitmessage-work" ,(local-file "git/gitmessage-work"))
+             (".config/dunst/dunstrc" ,(local-file "dunst/dunstrc"))
              (".config/nix/nix.conf" ,(local-file "nix/nix.conf"))
              (".config/nixpkgs/config.nix" ,(local-file "nix/nixpkgs.nix"))
              (".config/conky/conky.conf" ,(local-file "conky/conkyrc.lua"))
