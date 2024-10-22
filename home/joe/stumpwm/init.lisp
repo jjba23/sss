@@ -59,8 +59,8 @@
 (load-module "cpu")
 (load-module "mem")
 (load-module "hostname")
-(load-module "ttf-fonts")
 (load-module "clx-truetype")
+(load-module "ttf-fonts")
 (load-module "stumptray")
 (load-module "slynk")
 
