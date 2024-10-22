@@ -176,6 +176,7 @@
              (".stumpwm.d/init.lisp" ,(local-file "stumpwm/init.lisp"))
              (".stumpwm.d/keymaps.lisp" ,(local-file "stumpwm/keymaps.lisp"))
              (".stumpwm.d/colors.lisp" ,(local-file "stumpwm/colors.lisp"))
+             (".stumpwm.d/autostarts.lisp" ,(local-file "stumpwm/autostarts.lisp"))
              (".config/picom.conf" ,(local-file sss-picom-conf-location))
              (".xmodmap" ,(local-file  sss-xmodmap-conf-location))
              (".config/gtk-3.0/settings.ini" ,(local-file sss-gtk3-conf-location))

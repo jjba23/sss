@@ -69,7 +69,7 @@
     ### Icons ###
     
     # Disable icons
-    icon_position = off
+    icon_position = left
 
     ### History ###
     
@@ -118,7 +118,7 @@
     # Normal urgency notifications
     background = "#202632"
     foreground = "#ffffff"
-    timeout = 5
+    timeout = 8
 
 [urgency_critical]
 

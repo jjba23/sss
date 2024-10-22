@@ -28,6 +28,7 @@
 (asdf:load-system "stumpwm")
 (in-package :stumpwm)
 
+(setf *debug-level* 10)
 
 (defvar user-name "Joe")
 (defvar small-user-name "joe")
@@ -45,6 +46,12 @@
 
 (defvar sss-font-family "Intel One Mono"
   "Font family to be used as main for StumpWM")
+
+(defvar sss-guix-home-path "~/.guix-home/profile/share/"
+  "Define Guix Home profile PATH.")
+
+(defvar sss-stumpwm-data-dir (concat (getenv "XDG_CACHE_HOME") "/stumpwm/")
+  "Define the directory where StumpWM should work with data.")
 
 ;; Load StumpWM modules
 (set-module-dir sss-stumpwm-module-dir)
@@ -66,17 +73,10 @@
   "Stop current slynk server for sly."
   (sb-thread:make-thread (lambda () (slynk:stop-server 4005))))
 
-(defvar sss-guix-home-path "~/.guix-home/profile/share/"
-  "Define Guix Home profile PATH.")
-
-(defvar sss-stumpwm-data-dir (concat (getenv "XDG_CACHE_HOME") "/stumpwm/")
-  "Define the directory where StumpWM should work with data.")
-
 ;; Load SSS modules
 (load "~/.stumpwm.d/colors.lisp")
 (load "~/.stumpwm.d/keymaps.lisp")
-
-(setf *debug-level* 10)
+(load "~/.stumpwm.d/autostarts.lisp")
 
 ;; Set prefix key, the leader key binding
 (set-prefix-key (kbd "C-t"))
@@ -110,24 +110,6 @@
     (gnewbg " priv")
     (gnewbg " audio")))
 
-;; TODO implement run-shell-command-once 
-(defun sss-run-autostarts ()
-  (progn
-    ;; (display "\n>>=  applying wallpaper...\n")
-    (run-shell-command "feh --bg-scale ~/Ontwikkeling/Persoonlijk/sss/resources/wallpapers/3nt5e7.png")
-    ;;(display "\n>>=  starting Emacs daemon...\n")
-    (run-shell-command "emacs --daemon")
-    ;;(display "\n>>=  starting Picom compositor...\n")
-    (run-shell-command "picom -b")
-    ;;(display "\n>>=  applying xmodmap keyboard configurations...\n")
-    (run-shell-command "xmodmap ~/.xmodmap")
-    ;;(display "\n>>=  cursor tweaks...\n")
-    (run-shell-command "xsetroot -cursor_name left_ptr")
-    ;;(display "\n>>=  start LXSession...\n")
-    (run-shell-command "lxsession --de=StumpWM &")
-    ;;(display "\n>>=  start Conky...\n")
-    ;;(run-shell-command "conky -d")
-    ))
 
 (setf *mouse-focus-policy*    :click
       *float-window-modifier* :SUPER)

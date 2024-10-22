@@ -289,8 +289,8 @@ mind.")
    i3lock-fancy
    mpv
    mpv-mpris
-   transmission
    fyi
+   qbittorrent
    ))
 
 (define-public sss-system-packages
