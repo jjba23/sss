@@ -21,6 +21,7 @@
   #:use-module (gnu packages screen)	     
   #:use-module (gnu packages emacs)
   #:use-module (gnu packages lxde)
+  #:use-module (gnu packages vim)
   #:use-module (gnu packages gnome)
   #:use-module (gnu packages databases)
   #:use-module (gnu packages bittorrent)
@@ -296,6 +297,7 @@ mind.")
    network-manager-applet
    network-manager-openconnect
    network-manager-openvpn
+   xxd
    ))
 
 (define-public sss-system-packages
