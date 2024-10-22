@@ -293,6 +293,9 @@ mind.")
    fyi
    qbittorrent
    openvpn
+   network-manager
+   network-manager-applet
+   network-manager-openconnect
    network-manager-openvpn
    ))
 
