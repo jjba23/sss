@@ -1,4 +1,4 @@
-# config.bash - Bash configurations
+# bashrc.sh - Bash configurations
 
 # Copyright (C) 2024 Josep Bigorra
 
@@ -89,6 +89,9 @@ alias sep='cal -m 09'
 alias oct='cal -m 10'
 alias nov='cal -m 11'
 alias dec='cal -m 12'
+
+alias scala-dev="nix develop /home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/flakes/scala-dev/"
+alias haskell-dev="nix develop /home/joe/Ontwikkeling/Persoonlijk/sss/home/joe/flakes/haskell-dev/"
 
 function find_largest_files() {
     du -h -x -s -- * | sort -r -h | head -20;

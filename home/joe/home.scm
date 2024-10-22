@@ -36,7 +36,7 @@
    home-bash-service-type
    (home-bash-extension
     (environment-variables '())
-    (bashrc `(,(local-file "bash/config.bash"))))))
+    (bashrc `(,(local-file "bash/bashrc.sh"))))))
 
 (define (emacs-conf-file file)
   (format #f ".emacs.d/~a" file ))
