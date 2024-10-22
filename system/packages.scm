@@ -42,6 +42,7 @@
   #:use-module (gnu packages gnome-xyz)
   #:use-module (gnu packages compton)
   #:use-module (gnu packages ssh)
+  #:use-module (gnu packages vpn)
   #:use-module (gnu packages version-control)
   #:use-module (gnu packages fonts)
   #:use-module (gnu packages pulseaudio)
@@ -291,6 +292,8 @@ mind.")
    mpv-mpris
    fyi
    qbittorrent
+   openvpn
+   network-manager-openvpn
    ))
 
 (define-public sss-system-packages
