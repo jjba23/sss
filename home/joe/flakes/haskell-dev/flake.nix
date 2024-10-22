@@ -16,6 +16,7 @@
             haskell-language-server
             cachix
             ormolu
+            cabal-install
             nixfmt
             ghcid
             statix
