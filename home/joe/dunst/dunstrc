@@ -54,7 +54,7 @@
     # Show age of message if message is older than x seconds
     show_age_threshold = -1
     # Split notifications into multiple lines
-    word_wrap = no
+    word_wrap = true
     # If message too long, add ellipsize to...
     ellipsize = middle
     # Ignore newlines in notifications
