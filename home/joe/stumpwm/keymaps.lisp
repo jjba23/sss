@@ -43,6 +43,7 @@
     (sss-define-keys '("q" "C-q") m "quit")
     (sss-define-keys '("i" "C-i") m "which-key-mode")
     (sss-define-keys '("z" "C-z") m "iresize")
+    (sss-define-keys '("f" "C-f") m "fullscreen")
     (sss-define-keys '("{" "C-{") m "sly-start-server")
     (sss-define-keys '("}" "C-}") m "sly-stop-server")
     (sss-define-keys '("c" "C-c") m "exec conky -d")
