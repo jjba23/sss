@@ -300,6 +300,11 @@ mind.")
    xxd
    ))
 
+(define sss-guile-packages
+  (list
+   (specification->package "guile-json@4.7.3")
+   ))
+
 (define-public sss-system-packages
   (append
    sss-other-system-packages
@@ -307,6 +312,7 @@ mind.")
    sss-font-packages
    sss-sbcl-packages
    sss-dev-packages
+   sss-guile-packages
    sss-treesitter-packages
    sss-coreutils
    sss-theme-packages))
