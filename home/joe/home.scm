@@ -63,8 +63,12 @@
     (scrollback_lines . 10000000)
     (window_padding_width . 12)
     (background_opacity . "0.8")
-    ("map alt+w" . "copy_to_clipboard")
-    ("map ctrl+y" . "paste_from_clipboard")
+    ("map alt+w" . copy_to_clipboard)
+    ("map ctrl+y" . paste_from_clipboard)
+    ("map alt+v" . scroll_page_up)
+    ("map ctrl+v" . scroll_page_down)
+    ("map alt+<" . scroll_home)
+    ("map alt+>" . scroll_end)
     ))
 
 (define sss-opengpg-conf
