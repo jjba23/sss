@@ -326,7 +326,9 @@ According to size, color and font family"
 
 (use-package magit :ensure t :after (transient))
 
-(use-package ripgrep :ensure t)
+(use-package ripgrep
+  :ensure t
+  :bind (("C-c z r" . ripgrep-regexp)))
 
 (use-package toml-mode :ensure t :mode "\\.toml\\'")
 
